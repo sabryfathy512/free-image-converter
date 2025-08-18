@@ -8,22 +8,22 @@
   <title>Free Image Converter | JPG to PNG, WebP, ICO Online (No Sign-Up)</title>
   <meta name="description" content="Free, no sign-up, no uploads. Fast JPG ↔ PNG ↔ WebP ↔ ICO converter with batch support, resize, and ZIP download. 100% client-side." />
   <meta name="keywords" content="free image converter, jpg to png, png to webp, webp to jpg, ico converter, no signup, batch converter, offline" />
-  <link rel="canonical" href="https://example.com/image-converter" />
-  <link rel="alternate" href="https://example.com/image-converter" hreflang="en" />
-  <link rel="alternate" href="https://example.com/ar/image-converter" hreflang="ar" />
+  <link rel="canonical" href="https://sabryfathy512.github.io/free-image-converter/" />
+  <link rel="alternate" href="https://sabryfathy512.github.io/free-image-converter/" hreflang="en" />
+  <link rel="alternate" href="https://sabryfathy512.github.io/free-image-converter/" hreflang="ar" />
   <meta http-equiv="content-language" content="en, ar">
 
   <!-- OG/Twitter -->
   <meta property="og:title" content="Free Image Converter | JPG to PNG, WebP, ICO Online (No Sign-Up)" />
   <meta property="og:description" content="Free forever · No login · No uploads. Drag-and-drop, batch, resize, ZIP. Ad-supported." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://example.com/image-converter" />
+  <meta property="og:url" content="https://sabryfathy512.github.io/free-image-converter/" />
   <meta property="og:image" content="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTIwMCcgaGVpZ2h0PSc2MzAnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+PHJlY3Qgd2lkdGg9JzEyMDAnIGhlaWdodD0nNjMwJyBmaWxsPScjZjVmNWY1Jy8+PHRleHQgeD0nNjAnIHk9JzMyMCcgZm9udC1zaXplPSc2NHB4JyBmb250LWZhbWlseT0nQXJpYWwsIFNhbnMtc2VyaWYnIGZpbGw9JyM0NDQnPkZyZWUgSW1hZ2UgQ29udmVydGVyPC90ZXh0Pjwvc3ZnPg==" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:locale:alternate" content="ar_SA" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- JSON-LD: App + FAQ -->
+  <!-- JSON-LD: WebApplication -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -31,26 +31,62 @@
     "name":"Free Image Converter",
     "applicationCategory":"MultimediaApplication",
     "operatingSystem":"Any",
-    "url":"https://example.com/image-converter",
+    "url":"https://sabryfathy512.github.io/free-image-converter/",
     "inLanguage":["en","ar"],
     "description":"Free, client-side image converter (JPG, PNG, WebP, ICO) with batch, resize, and ZIP download. No sign-up or uploads.",
     "featureList":["No sign-up","No uploads","Batch processing","Resize before convert","Canvas API","JPG background color","ICO 256x256","ZIP download"],
     "offers":{"@type":"Offer","price":"0"}
   }
   </script>
+
+  <!-- JSON-LD: FAQPage (SINGLE, CLEAN) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": [{
-      "@type": "Question",
-      "name": "How to convert JPG to PNG free?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Click Choose Files, select JPGs, set output PNG, optionally adjust quality/resize, then Convert and download." }
-    },{
-      "@type": "Question",
-      "name": "Can I convert WebP to ICO without sign-up?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. This tool is 100% client-side, no login required. Choose ICO output and Convert." }
-    }]
+    "@id": "https://sabryfathy512.github.io/free-image-converter/#faq",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How to convert JPG to PNG free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Drag and drop your JPG, choose PNG as output, then click Convert. No sign-up or upload required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I convert WebP to ICO without sign-up?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Select your WebP image, set output to ICO (256×256), and download instantly. Everything runs in your browser."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this converter support large images?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Processing happens locally using the Canvas API. The main limit is your device memory."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the tool free forever and without login?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. It is 100% free and ad-supported. No account or sign-up is required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I batch convert multiple images and download as ZIP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Add multiple files, click Convert, then download each or all together as a ZIP archive."
+        }
+      }
+    ]
   }
   </script>
 
@@ -121,56 +157,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
   <script>if(typeof window.saveAs!=='function'){window.saveAs=function(b,n){const a=document.createElement('a'),u=URL.createObjectURL(b);a.href=u;a.download=n||'download';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1000);}};</script>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How to convert JPG to PNG free?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Simply drag and drop your JPG image into the tool, choose PNG as output format, and click Convert. No sign-up or upload required."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I convert WebP to ICO without sign-up?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Select your WebP image, choose ICO as output format, and download instantly. The tool runs fully in your browser, no account needed."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does this converter work with large images?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. The tool processes images directly in your browser using the Canvas API. The only limit is your device memory, so large images are supported."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is the image converter really free forever?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. The service is 100% free, supported by ads. No login or subscription required."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I batch convert multiple images?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Drag and drop multiple files or use the file picker, then download them individually or as a single ZIP archive."
-      }
-    }
-  ]
-}
-</script>
-
-  </head>
+</head>
 <body>
   <header>
     <div class="wrap hero">
@@ -238,7 +225,7 @@
             </div>
           </div>
 
-          <!-- Dynamic Resize Inputs (demo removed) -->
+          <!-- Dynamic Resize Inputs (no demo button) -->
           <div class="controls" id="resizeInputs" style="margin-top: -6px;">
             <div id="percentWrap" style="display:none">
               <label class="small" for="percentVal" id="lblPercent">Scale percentage</label>
@@ -348,7 +335,7 @@
     <div class="modal-actions"><button class="btn secondary" data-close>Close</button></div>
   </div></dialog>
 
-  <!-- CONTACT: Formspree-only -->
+  <!-- CONTACT: Formspree-only (no email exposed) -->
   <dialog id="contactDlg"><div class="pad">
     <h3>Contact</h3>
     <p class="hint" style="margin-top:-4px">
@@ -646,7 +633,7 @@
     }
 
     // ---------- CONTACT FORM (Formspree only) ----------
-    const FS_ENDPOINT = "https://formspree.io/f/mzzvqonw"; // your endpoint
+    const FS_ENDPOINT = "https://formspree.io/f/mzzvqonw"; // your Formspree endpoint
 
     (function wireContactForm(){
       const form = document.getElementById('contactForm');
@@ -672,7 +659,6 @@
         btn.disabled = true; btn.textContent = 'Sending…';
         try {
           const data = new FormData(form);
-          // Formspree tips: include a subject and set reply-to
           data.append('_subject', 'Contact from Free Image Converter');
           data.append('_replyto', emailEl.value);
 
@@ -683,7 +669,7 @@
           });
 
           if (res.ok) {
-            statusEl.textContent = 'Message sent! Please check your email for a confirmation (if enabled).';
+            statusEl.textContent = 'Message sent!';
             try { const t = document.getElementById('toast'); const old=t.textContent; t.textContent='✅ Message sent'; t.classList.add('show'); setTimeout(()=>{ t.textContent=old; t.classList.remove('show'); }, 2000);} catch {}
             form.reset();
           } else {
@@ -754,7 +740,7 @@
       b.addEventListener('click', e=> e.target.closest('dialog')?.close());
     });
 
-    // Sync canonical/og url
+    // Sync canonical/og url to actual path
     try{
       const href=location.href;
       const can=document.querySelector('link[rel="canonical"]');
@@ -765,4 +751,3 @@
   </script>
 </body>
 </html>
-
