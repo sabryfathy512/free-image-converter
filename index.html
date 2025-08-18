@@ -157,6 +157,17 @@
   <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
   <script>if(typeof window.saveAs!=='function'){window.saveAs=function(b,n){const a=document.createElement('a'),u=URL.createObjectURL(b);a.href=u;a.download=n||'download';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1000);}};</script>
+  <!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZT3BHHBZQ3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-ZT3BHHBZQ3", {
+    anonymize_ip: true,
+    send_page_view: true
+  });
+</script>
 </head>
 <body>
   <header>
@@ -749,5 +760,25 @@
       if (ogu) ogu.setAttribute('content', href);
     }catch{}
   </script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function(){
+    var cBtn = document.getElementById("convertBtn");
+    var zBtn = document.getElementById("downloadAllBtn");
+    var cForm = document.querySelector('form[action^="https://formspree.io/"]');
+
+    if (cBtn) cBtn.addEventListener("click", function(){
+      window.gtag && gtag("event", "convert_click", {event_category:"engagement", value:1});
+    });
+
+    if (zBtn) zBtn.addEventListener("click", function(){
+      window.gtag && gtag("event", "zip_download", {event_category:"engagement", value:1});
+    });
+
+    if (cForm) cForm.addEventListener("submit", function(){
+      window.gtag && gtag("event", "contact_submit", {event_category:"lead", value:1});
+    });
+  });
+</script>
 </body>
 </html>
+
