@@ -9,21 +9,32 @@
   <meta name="description" content="Free, no sign-up, no uploads. Fast JPG ↔ PNG ↔ WebP ↔ ICO converter with batch support, resize, and ZIP download. 100% client-side." />
   <meta name="keywords" content="free image converter, jpg to png, png to webp, webp to jpg, ico converter, no signup, batch converter, offline" />
   <link rel="canonical" href="https://sabryfathy512.github.io/free-image-converter/" />
-  <link rel="alternate" href="https://sabryfathy512.github.io/free-image-converter/" hreflang="en" />
-  <link rel="alternate" href="https://sabryfathy512.github.io/free-image-converter/" hreflang="ar" />
-  <meta http-equiv="content-language" content="en, ar">
+  <!-- إن أردت hreflang فعلي لاحقًا، أنشئ مسارين منفصلين للغات. حالياً سنحتفظ بـ x-default فقط -->
+  <link rel="alternate" href="https://sabryfathy512.github.io/free-image-converter/" hreflang="x-default" />
+  <meta name="theme-color" content="#0b0c10">
+
+  <!-- Preload OG image to ensure fast social previews / first paint -->
+  <link rel="preload" as="image" href="og.png">
 
   <!-- OG/Twitter -->
   <meta property="og:title" content="Free Image Converter | JPG to PNG, WebP, ICO Online (No Sign-Up)" />
   <meta property="og:description" content="Free forever · No login · No uploads. Drag-and-drop, batch, resize, ZIP. Ad-supported." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://sabryfathy512.github.io/free-image-converter/" />
-  <meta property="og:image" content="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTIwMCcgaGVpZ2h0PSc2MzAnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+PHJlY3Qgd2lkdGg9JzEyMDAnIGhlaWdodD0nNjMwJyBmaWxsPScjZjVmNWY1Jy8+PHRleHQgeD0nNjAnIHk9JzMyMCcgZm9udC1zaXplPSc2NHB4JyBmb250LWZhbWlseT0nQXJpYWwsIFNhbnMtc2VyaWYnIGZpbGw9JyM0NDQnPkZyZWUgSW1hZ2UgQ29udmVydGVyPC90ZXh0Pjwvc3ZnPg==" />
+  <!-- استخدم صورة مستضافة فعلية، ليس data URI -->
+  <meta property="og:image" content="https://sabryfathy512.github.io/free-image-converter/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:locale:alternate" content="ar_SA" />
-  <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- JSON-LD: WebApplication -->
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Image Converter | JPG to PNG, WebP, ICO Online (No Sign-Up)" />
+  <meta name="twitter:description" content="Free forever · No login · No uploads. Drag-and-drop, batch, resize, ZIP. 100% client-side." />
+  <meta name="twitter:image" content="https://sabryfathy512.github.io/free-image-converter/og.png" />
+
+  <!-- JSON-LD: WebApplication (مبسّطة ونظيفة) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -34,58 +45,22 @@
     "url":"https://sabryfathy512.github.io/free-image-converter/",
     "inLanguage":["en","ar"],
     "description":"Free, client-side image converter (JPG, PNG, WebP, ICO) with batch, resize, and ZIP download. No sign-up or uploads.",
-    "featureList":["No sign-up","No uploads","Batch processing","Resize before convert","Canvas API","JPG background color","ICO 256x256","ZIP download"],
-    "offers":{"@type":"Offer","price":"0"}
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
   }
   </script>
 
-  <!-- JSON-LD: FAQPage (SINGLE, CLEAN) -->
+  <!-- JSON-LD: FAQPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "@id": "https://sabryfathy512.github.io/free-image-converter/#faq",
     "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How to convert JPG to PNG free?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Drag and drop your JPG, choose PNG as output, then click Convert. No sign-up or upload required."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I convert WebP to ICO without sign-up?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Select your WebP image, set output to ICO (256×256), and download instantly. Everything runs in your browser."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does this converter support large images?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Processing happens locally using the Canvas API. The main limit is your device memory."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is the tool free forever and without login?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. It is 100% free and ad-supported. No account or sign-up is required."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I batch convert multiple images and download as ZIP?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Add multiple files, click Convert, then download each or all together as a ZIP archive."
-        }
-      }
+      {"@type":"Question","name":"How to convert JPG to PNG free?","acceptedAnswer":{"@type":"Answer","text":"Drag and drop your JPG, choose PNG as output, then click Convert. No sign-up or upload required."}},
+      {"@type":"Question","name":"Can I convert WebP to ICO without sign-up?","acceptedAnswer":{"@type":"Answer","text":"Yes. Select your WebP image, set output to ICO (256×256), and download instantly. Everything runs in your browser."}},
+      {"@type":"Question","name":"Does this converter support large images?","acceptedAnswer":{"@type":"Answer","text":"Yes. Processing happens locally using the Canvas API. The main limit is your device memory."}},
+      {"@type":"Question","name":"Is the tool free forever and without login?","acceptedAnswer":{"@type":"Answer","text":"Yes. It is 100% free and ad-supported. No account or sign-up is required."}},
+      {"@type":"Question","name":"Can I batch convert multiple images and download as ZIP?","acceptedAnswer":{"@type":"Answer","text":"Yes. Add multiple files, click Convert, then download each or all together as a ZIP archive."}}
     ]
   }
   </script>
@@ -157,17 +132,15 @@
   <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
   <script>if(typeof window.saveAs!=='function'){window.saveAs=function(b,n){const a=document.createElement('a'),u=URL.createObjectURL(b);a.href=u;a.download=n||'download';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1000);}};</script>
+
   <!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZT3BHHBZQ3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag("js", new Date());
-  gtag("config", "G-ZT3BHHBZQ3", {
-    anonymize_ip: true,
-    send_page_view: true
-  });
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZT3BHHBZQ3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-ZT3BHHBZQ3", { anonymize_ip: true, send_page_view: true });
+  </script>
 </head>
 <body>
   <header>
@@ -177,17 +150,16 @@
         <h1 id="appTitle">Free Image Converter</h1>
         <span class="badge" id="freeBadge">Free forever · No login</span>
         <div class="theme-toggle" role="group" aria-label="Theme">
-          <button id="themeLight" aria-pressed="false">Light</button>
-          <button id="themeDark" aria-pressed="false">Dark</button>
-          <button id="themeAuto" aria-pressed="true">Auto</button>
+          <button id="themeLight" aria-pressed="false" type="button" aria-label="Switch to light theme">Light</button>
+          <button id="themeDark" aria-pressed="false" type="button" aria-label="Switch to dark theme">Dark</button>
+          <button id="themeAuto" aria-pressed="true" type="button" aria-label="Use system theme">Auto</button>
         </div>
         <div class="lang-toggle" role="group" aria-label="Language" style="margin-left:8px">
-          <button id="btnEN" aria-pressed="true">EN</button>
-          <button id="btnAR" aria-pressed="false">AR</button>
+          <button id="btnEN" aria-pressed="true" type="button" aria-label="Switch language to English">EN</button>
+          <button id="btnAR" aria-pressed="false" type="button" aria-label="التبديل إلى العربية">AR</button>
         </div>
       </div>
-      <aside class="ad-slot" id="adTop">
-        <!-- AdSense Top -->
+      <aside class="ad-slot" id="adTop" aria-label="Advertisement">
         <span>Ad Slot — 728×90 / Responsive</span>
       </aside>
     </div>
@@ -203,7 +175,7 @@
           <div class="controls" aria-label="Conversion options">
             <div>
               <label class="small" for="fmtSelect" id="lblFormat">Output format</label>
-              <select id="fmtSelect">
+              <select id="fmtSelect" aria-label="Select output format">
                 <option value="png">PNG</option>
                 <option value="jpg" selected>JPG</option>
                 <option value="webp">WebP</option>
@@ -214,20 +186,20 @@
 
             <div id="qualityWrap">
               <label class="small" for="quality" id="lblQuality">Quality (JPG/WebP)</label>
-              <input type="range" id="quality" min="0.1" max="1" step="0.01" value="0.92" />
+              <input type="range" id="quality" min="0.1" max="1" step="0.01" value="0.92" aria-label="Quality slider" />
               <div class="hint"><span id="qualityVal">0.92</span></div>
             </div>
 
             <div id="bgWrap">
               <label class="small" for="bgColor" id="lblBG">Background for JPG (transparent areas)</label>
-              <input type="color" id="bgColor" value="#ffffff" />
+              <input type="color" id="bgColor" value="#ffffff" aria-label="Background color for JPG" />
               <div class="hint" id="bgHint">Used only when output is JPG.</div>
             </div>
 
             <!-- Resize Options -->
             <div id="resizeWrap">
               <label class="small" for="resizeMode" id="lblResize">Resize before convert (optional)</label>
-              <select id="resizeMode">
+              <select id="resizeMode" aria-label="Select resize mode">
                 <option value="none" selected>No resize</option>
                 <option value="percent">Scale %</option>
                 <option value="maxw">Max width (px)</option>
@@ -236,35 +208,35 @@
             </div>
           </div>
 
-          <!-- Dynamic Resize Inputs (no demo button) -->
+          <!-- Dynamic Resize Inputs -->
           <div class="controls" id="resizeInputs" style="margin-top: -6px;">
             <div id="percentWrap" style="display:none">
               <label class="small" for="percentVal" id="lblPercent">Scale percentage</label>
-              <input type="number" id="percentVal" min="10" max="200" step="10" value="100" />
+              <input type="number" id="percentVal" min="10" max="200" step="10" value="100" aria-label="Scale percentage value" />
               <div class="hint">100% = original size</div>
             </div>
             <div id="maxwWrap" style="display:none">
               <label class="small" for="maxWidth" id="lblMaxW">Max width (px)</label>
-              <input type="number" id="maxWidth" min="128" step="32" value="1000" />
+              <input type="number" id="maxWidth" min="128" step="32" value="1000" aria-label="Maximum width in pixels" />
               <div class="hint">Keeps aspect ratio. Height auto-scales.</div>
             </div>
             <div>
               <label class="small">&nbsp;</label>
-              <div class="progress" aria-label="Progress"><span id="progressBar"></span></div>
-              <div class="hint" id="progressText">0%</div>
+              <div class="progress" aria-label="Progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="progressBar"></span></div>
+              <div class="hint" id="progressText" role="status" aria-live="polite">0%</div>
             </div>
           </div>
 
           <div class="buttons">
             <input type="file" id="picker" accept="image/*,.ico" multiple hidden />
-            <button class="btn" id="pickBtn">Choose Files</button>
-            <button class="btn secondary" id="clearBtn">Clear List</button>
+            <button class="btn" id="pickBtn" type="button" aria-label="Choose files">Choose Files</button>
+            <button class="btn secondary" id="clearBtn" type="button" aria-label="Clear file list">Clear List</button>
             <span class="hint" id="privacyNote">Free · No login · All processing in your browser.</span>
           </div>
 
           <div class="card" style="margin-top:12px">
             <div class="pad">
-              <div class="drop" id="drop">
+              <div class="drop" id="drop" aria-label="Drop area for images">
                 <strong id="dropTitle">Drag & drop images</strong>
                 <div id="dropHint" class="hint">JPG, PNG, WebP, ICO. Batch supported. *Large images work; device memory is the only limit.</div>
               </div>
@@ -272,12 +244,12 @@
           </div>
 
           <div class="buttons" style="margin-top:12px">
-            <button class="btn" id="convertBtn">Convert</button>
-            <button class="btn secondary" id="zipBtn" disabled>Download All (ZIP)</button>
+            <button class="btn" id="convertBtn" type="button" aria-label="Start conversion">Convert</button>
+            <button class="btn secondary" id="zipBtn" type="button" disabled aria-label="Download all files as ZIP" aria-disabled="true">Download All (ZIP)</button>
           </div>
 
           <!-- In-content Ad Slot -->
-          <div class="ad-slot" style="margin:12px 0;">
+          <div class="ad-slot" style="margin:12px 0;" aria-label="Advertisement">
             <span>Ad Slot — In-content / Responsive</span>
           </div>
 
@@ -286,7 +258,7 @@
               <table class="list" id="fileTable" aria-label="Files">
                 <thead>
                   <tr>
-                    <th>Preview</th><th>File</th><th class="nowrap">Original</th><th class="nowrap">Output</th><th>Status</th><th>Download</th>
+                    <th scope="col">Preview</th><th scope="col">File</th><th class="nowrap" scope="col">Original</th><th class="nowrap" scope="col">Output</th><th scope="col">Status</th><th scope="col">Download</th>
                   </tr>
                 </thead>
                 <tbody id="fileBody"></tbody>
@@ -298,7 +270,7 @@
 
       <aside class="card">
         <div class="pad">
-          <div class="ad-slot" style="min-height:250px">
+          <div class="ad-slot" style="min-height:250px" aria-label="Advertisement">
             <span>Ad Slot — 300×250 / Responsive</span>
           </div>
           <h3 style="margin-top:18px" id="faqTitle">Notes</h3>
@@ -331,51 +303,38 @@
   <dialog id="aboutDlg"><div class="pad">
     <h3>About</h3>
     <p>Free, ad-supported, client-side image converter. No sign-up, no uploads. Built for speed and privacy.</p>
-    <div class="modal-actions"><button class="btn secondary" data-close>Close</button></div>
+    <div class="modal-actions"><button class="btn secondary" data-close type="button">Close</button></div>
   </div></dialog>
 
   <dialog id="privacyDlg"><div class="pad">
     <h3>Privacy Policy</h3>
-    <p>All image processing happens locally in your browser via the Canvas API. We do not upload or store your files on any server. AdSense scripts may set cookies per Google policies.</p>
-    <div class="modal-actions"><button class="btn secondary" data-close>Close</button></div>
+    <p>All image processing happens locally in your browser via the Canvas API. We do not upload or store your files on any server. Analytics scripts may set cookies per Google policies.</p>
+    <div class="modal-actions"><button class="btn secondary" data-close type="button">Close</button></div>
   </div></dialog>
 
   <dialog id="termsDlg"><div class="pad">
     <h3>Terms of Service</h3>
     <p>Service is provided “as-is” without warranties. You are responsible for ensuring you have rights to process and download images you convert.</p>
-    <div class="modal-actions"><button class="btn secondary" data-close>Close</button></div>
+    <div class="modal-actions"><button class="btn secondary" data-close type="button">Close</button></div>
   </div></dialog>
 
   <!-- CONTACT: Formspree-only (no email exposed) -->
   <dialog id="contactDlg"><div class="pad">
     <h3>Contact</h3>
-    <p class="hint" style="margin-top:-4px">
-      Send us a message via the secure form below. We don’t display an email address to reduce spam.
-    </p>
-
+    <p class="hint" style="margin-top:-4px">Send us a message via the secure form below. We don’t display an email address to reduce spam.</p>
     <form id="contactForm" novalidate>
-      <!-- Honeypot (spam trap) -->
       <input type="text" name="_gotcha" autocomplete="off" style="display:none" tabindex="-1" />
-
       <label class="small">Your email</label>
       <input type="email" id="cfEmail" name="email" required placeholder="you@example.com" />
-
       <label class="small" style="margin-top:8px">Message</label>
       <textarea id="cfMsg" name="message" rows="5" required placeholder="How can we help?"></textarea>
-
       <div style="display:flex;gap:10px;align-items:center;margin-top:10px">
         <button type="submit" class="btn" id="cfSubmit">Send</button>
         <span class="hint" id="cfStatus" aria-live="polite"></span>
       </div>
     </form>
-
-    <p class="hint" style="margin-top:10px">
-      We never upload your images. Ads may set cookies per Google policies.
-    </p>
-
-    <div class="modal-actions">
-      <button class="btn secondary" data-close>Close</button>
-    </div>
+    <p class="hint" style="margin-top:10px">We never upload your images. Ads may set cookies per Google policies.</p>
+    <div class="modal-actions"><button class="btn secondary" data-close type="button">Close</button></div>
   </div></dialog>
 
   <script>
@@ -404,7 +363,8 @@
         notes: "Notes",
         preview: "Preview", file: "File", original: "Original", output: "Output",
         status: "Status", download: "Download", done: "Ready", processing: "Processing…",
-        failed: "Failed", toast: "✅ Conversion complete"
+        failed: "Failed", toast: "✅ Conversion complete",
+        altThumb: "Thumbnail preview"
       },
       ar: {
         title: "محوّل صيغ الصور مجانًا",
@@ -429,7 +389,8 @@
         notes: "ملاحظات",
         preview: "معاينة", file: "الملف", original: "الأصلي", output: "الإخراج",
         status: "الحالة", download: "تنزيل", done: "جاهز", processing: "جارٍ المعالجة…",
-        failed: "فشل", toast: "✅ تم إكمال التحويل"
+        failed: "فشل", toast: "✅ تم إكمال التحويل",
+        altThumb: "صورة مُصغّرة"
       }
     };
     let lang = 'en';
@@ -446,11 +407,15 @@
       document.documentElement.lang=l;
       document.documentElement.dir=(l==='ar')?'rtl':'ltr';
       $('#appTitle').textContent=t.title; $('#freeBadge').textContent=t.badge;
+
+      // Sync meta for description/OG description + title
       document.title = (l==='en')
         ? "Free Image Converter | JPG to PNG, WebP, ICO Online (No Sign-Up)"
         : "محوّل صيغ الصور مجانًا | JPG إلى PNG و WebP و ICO (بدون تسجيل)";
-      document.querySelector('meta[name="description"]').setAttribute('content', t.lead);
-      document.querySelector('meta[property="og:description"]').setAttribute('content', t.lead);
+      document.querySelector('meta[name="description"]')?.setAttribute('content', t.lead);
+      document.querySelector('meta[property="og:description"]')?.setAttribute('content', t.lead);
+      document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', t.lead);
+
       $('#lead').textContent=t.lead;
       $('#lblFormat').textContent=t.lblFormat; $('#fmtHint').textContent=t.fmtHint;
       $('#lblQuality').textContent=t.lblQuality; $('#lblBG').textContent=t.lblBG; $('#bgHint').textContent=t.bgHint;
@@ -462,7 +427,9 @@
       $('#faqTitle').textContent=t.notes;
       document.querySelector('#fileTable thead').innerHTML=`
         <tr>
-          <th>${t.preview}</th><th>${t.file}</th><th class="nowrap">${t.original}</th><th class="nowrap">${t.output}</th><th>${t.status}</th><th>${t.download}</th>
+          <th scope="col">${t.preview}</th><th scope="col">${t.file}</th>
+          <th class="nowrap" scope="col">${t.original}</th><th class="nowrap" scope="col">${t.output}</th>
+          <th scope="col">${t.status}</th><th scope="col">${t.download}</th>
         </tr>`;
       $('#toast').textContent=t.toast;
       $('#btnEN').setAttribute('aria-pressed', l==='en'); $('#btnAR').setAttribute('aria-pressed', l==='ar');
@@ -480,12 +447,13 @@
     function makeRow(item){
       const tr=document.createElement('tr');
       tr.id=`row-${item.id}`;
+      const alt = (i18n[lang]?.altThumb || "Thumbnail") + ": " + (item.file?.name || "image");
       tr.innerHTML=`
-        <td><img class="thumb" src="${item.thumbUrl}" alt=""></td>
+        <td><img class="thumb" src="${item.thumbUrl}" alt="${alt}"></td>
         <td class="nowrap">${item.file.name}</td>
         <td>${Math.round(item.imgW)}×${Math.round(item.imgH)}</td>
         <td id="out-${item.id}">—</td>
-        <td id="st-${item.id}">${i18n[lang].processing}</td>
+        <td id="st-${item.id}">—</td>
         <td id="dl-${item.id}">—</td>`;
       return tr;
     }
@@ -495,19 +463,32 @@
     function toast(){const el=$('#toast');el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2600)}
     function updateRowStatus(id,txt){const el=$(`#st-${id}`); if(el) el.textContent=txt}
     function setOutInfo(id,txt){const el=$(`#out-${id}`); if(el) el.textContent=txt}
-    function setDownloadBtn(id,name,blob){const td=$(`#dl-${id}`); if(!td) return; td.innerHTML=''; const b=document.createElement('button'); b.className='btn secondary'; b.textContent=i18n[lang].download; b.addEventListener('click',()=>saveAs(blob,name)); td.appendChild(b)}
+    function setDownloadBtn(id,name,blob){
+      const td=$(`#dl-${id}`); if(!td) return;
+      td.innerHTML='';
+      const b=document.createElement('button');
+      b.className='btn secondary';
+      b.textContent=i18n[lang].download || 'Download';
+      b.setAttribute('aria-label', 'Download ' + name);
+      b.addEventListener('click',()=>saveAs(blob,name));
+      td.appendChild(b)
+    }
 
     async function analyzeFile(file){
       const url=URL.createObjectURL(file);
       try{
-        const bmp=await createImageBitmap(file).catch(()=>null);
+        // احترام دوران EXIF
+        const bmp=await createImageBitmap(file, { imageOrientation: 'from-image' }).catch(()=>null);
         if(bmp){
           const width=bmp.width,height=bmp.height;
           let tCanvas,ctx;
           if(typeof OffscreenCanvas!=='undefined'){tCanvas=new OffscreenCanvas(52,52); ctx=tCanvas.getContext('2d')}
           else{tCanvas=document.createElement('canvas'); tCanvas.width=52; tCanvas.height=52; ctx=tCanvas.getContext('2d')}
           const scale=Math.min(52/width,52/height), w=Math.max(1,Math.round(width*scale)), h=Math.max(1,Math.round(height*scale));
-          ctx.clearRect(0,0,52,52); ctx.drawImage(bmp,(52-w)/2,(52-h)/2,w,h);
+          ctx.clearRect(0,0,52,52);
+          ctx.imageSmoothingEnabled = true;
+          ctx.imageSmoothingQuality = 'high';
+          ctx.drawImage(bmp,(52-w)/2,(52-h)/2,w,h);
           const blob=tCanvas.convertToBlob? await tCanvas.convertToBlob() : await new Promise(r=>tCanvas.toBlob(r,'image/png'));
           const thumbUrl=URL.createObjectURL(blob);
           bmp.close?.();
@@ -516,6 +497,8 @@
           const img=await new Promise((res,rej)=>{const im=new Image(); im.onload=()=>res(im); im.onerror=rej; im.src=url;});
           const c=document.createElement('canvas'); c.width=52; c.height=52; const ctx=c.getContext('2d');
           const scale=Math.min(52/img.width,52/img.height), w=Math.max(1,Math.round(img.width*scale)), h=Math.max(1,Math.round(img.height*scale));
+          ctx.imageSmoothingEnabled = true;
+          ctx.imageSmoothingQuality = 'high';
           ctx.drawImage(img,(52-w)/2,(52-h)/2,w,h);
           const blob=await new Promise(r=>c.toBlob(r,'image/png'));
           const thumbUrl=URL.createObjectURL(blob);
@@ -553,41 +536,21 @@
       return { w: srcW, h: srcH };
     }
 
-    async function convertOne(item, fmt, quality, bgColor){
-      const bmp=await createImageBitmap(item.file).catch(()=>null);
-      const sourceW=bmp?bmp.width:item.imgW, sourceH=bmp?bmp.height:item.imgH;
-      const dims=applyResizeDims(sourceW, sourceH);
-      const targetW = (fmt==='ico') ? 256 : dims.w;
-      const targetH = (fmt==='ico') ? 256 : dims.h;
+    // Ensure unique names inside ZIP to avoid collisions
+    function uniqueName(base, ext, used){
+      let name = `${base}.${ext}`, i=1;
+      while(used.has(name)){ name = `${base} (${i++}).${ext}`; }
+      used.add(name); return name;
+    }
 
-      let canvas=document.createElement('canvas'), ctx=canvas.getContext('2d');
-      canvas.width=targetW; canvas.height=targetH;
-
-      if(fmt==='ico'){
-        ctx.clearRect(0,0,256,256);
-        const scale=Math.min(256/sourceW,256/sourceH);
-        const w=Math.max(1,Math.round(sourceW*scale)), h=Math.max(1,Math.round(sourceH*scale));
-        const dx=(256-w)/2, dy=(256-h)/2;
-        if(bmp) ctx.drawImage(bmp,dx,dy,w,h);
-        else{const img=new Image(); img.src=item.url; await img.decode(); ctx.drawImage(img,dx,dy,w,h);}
-        const pngBlob=await new Promise(r=>canvas.toBlob(r,'image/png'));
-        const icoBlob=await wrapPngAsIco(pngBlob);
-        return { blob: icoBlob, outW:256, outH:256 };
-      }
-
-      if(fmt==='jpg'){ ctx.fillStyle=bgColor||'#ffffff'; ctx.fillRect(0,0,canvas.width,canvas.height); }
-      else{ ctx.clearRect(0,0,canvas.width,canvas.height); }
-
-      if(bmp) ctx.drawImage(bmp,0,0,sourceW,sourceH,0,0,targetW,targetH);
-      else{ const img=new Image(); img.src=item.url; await img.decode(); ctx.drawImage(img,0,0,sourceW,sourceH,0,0,targetW,targetH); }
-
-      const mime=mimeFor(fmt); const q=(fmt==='jpg'||fmt==='webp')?quality:undefined;
-      const blob=await new Promise(r=>canvas.toBlob(r,mime,q));
-      return { blob, outW: targetW, outH: targetH };
+    // فلترة أدق للملفات المقبولة
+    function acceptFiles(files){
+      const okTypes = /^(image\/(png|jpeg|webp|avif|gif|bmp|x-icon|vnd\.microsoft\.icon))$/i;
+      return Array.from(files).filter(f => okTypes.test(f.type) || /\.ico$/i.test(f.name));
     }
 
     async function addFiles(files){
-      const accepted=Array.from(files).filter(f=>/image\/|\.ico$/i.test(f.type)||/\.ico$/i.test(f.name));
+      const accepted = acceptFiles(files);
       for(const file of accepted){
         const info=await analyzeFile(file).catch(()=>null);
         if(!info) continue;
@@ -597,12 +560,14 @@
         updateRowStatus(item.id,'—');
       }
       $('#zipBtn').disabled=true;
+      $('#zipBtn').setAttribute('aria-disabled','true');
       updateProgress(0, state.files.length);
     }
 
     function clearList(){
       state.files.forEach(f=>{ URL.revokeObjectURL(f.url); URL.revokeObjectURL(f.thumbUrl); });
       state.files=[]; state.zip=new JSZip(); state.convertedCount=0; fileBody.innerHTML=''; $('#zipBtn').disabled=true;
+      $('#zipBtn').setAttribute('aria-disabled','true');
       updateProgress(0,0);
     }
 
@@ -610,41 +575,90 @@
       const pct = total? Math.round((done/total)*100) : 0;
       progressBar.style.width = pct + '%';
       progressText.textContent = pct + '%';
+      const bar = document.querySelector('.progress');
+      if (bar){
+        bar.setAttribute('role','progressbar');
+        bar.setAttribute('aria-valuemin','0'); bar.setAttribute('aria-valuemax','100');
+        bar.setAttribute('aria-valuenow', String(pct));
+      }
+    }
+
+    async function convertOne(item, fmt, quality, bgColor){
+      const bmp=await createImageBitmap(item.file, { imageOrientation: 'from-image' }).catch(()=>null);
+      const sourceW=bmp?bmp.width:item.imgW, sourceH=bmp?bmp.height:item.imgH;
+      const dims=applyResizeDims(sourceW, sourceH);
+      const targetW = (fmt==='ico') ? 256 : dims.w;
+      const targetH = (fmt==='ico') ? 256 : dims.h;
+
+      let canvas=document.createElement('canvas'), ctx=canvas.getContext('2d');
+      canvas.width=targetW; canvas.height=targetH;
+
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
+
+      if(fmt==='ico'){
+        ctx.clearRect(0,0,256,256);
+        const scale=Math.min(256/sourceW,256/sourceH);
+        const w=Math.max(1,Math.round(sourceW*scale)), h=Math.max(1,Math.round(sourceH*scale));
+        const dx=(256-w)/2, dy=(256-h)/2;
+        if(bmp) ctx.drawImage(bmp,dx,dy,w,h);
+        else{const img=new Image(); img.src=item.url; await img.decode(); ctx.drawImage(img,dx,dy,w,h);}
+        const pngBlob=await window.toBlobSafe(canvas,'image/png',1);
+        const icoBlob=await wrapPngAsIco(pngBlob);
+        bmp?.close?.();
+        return { blob: icoBlob, outW:256, outH:256 };
+      }
+
+      if(fmt==='jpg'){ ctx.fillStyle=bgColor||'#ffffff'; ctx.fillRect(0,0,canvas.width,canvas.height); }
+      else{ ctx.clearRect(0,0,canvas.width,canvas.height); }
+
+      if(bmp) ctx.drawImage(bmp,0,0,sourceW,sourceH,0,0,targetW,targetH);
+      else{ const img=new Image(); img.src=item.url; await img.decode(); ctx.drawImage(img,0,0,sourceW,sourceH,0,0,targetW,targetH); }
+      bmp?.close?.();
+
+      const mime=mimeFor(fmt); const q=(fmt==='jpg'||fmt==='webp')?quality:undefined;
+      const blob = await window.toBlobSafe(canvas, mime, q);
+      return { blob, outW: targetW, outH: targetH };
     }
 
     async function runConversion(){
       if(!state.files.length) return;
+      const t = i18n[lang];
       const fmt=$('#fmtSelect').value, quality=parseFloat($('#quality').value), bg=$('#bgColor').value;
       state.zip=new JSZip(); state.convertedCount=0;
-      for(const item of state.files) updateRowStatus(item.id, i18n[lang].processing);
+
+      const usedNames = new Set();
+      for(const item of state.files) updateRowStatus(item.id, t.processing || 'Processing…');
 
       let done=0, total=state.files.length; updateProgress(0,total);
       for(const item of state.files){
         try{
           const base = item.file.name.replace(/\.[^.]+$/,'') || 'image';
-          const outName = `${base}.${extFor(fmt)}`;
+          const outName = uniqueName(base, extFor(fmt), usedNames);
           const { blob, outW, outH } = await convertOne(item, fmt, quality, bg);
           item.outBlob=blob; item.outName=outName;
           setOutInfo(item.id, `${outW}×${outH} (${humanSize(blob.size)})`);
           setDownloadBtn(item.id, outName, blob);
-          updateRowStatus(item.id, i18n[lang].done);
+          updateRowStatus(item.id, t.done || 'Ready');
           state.zip.file(outName, blob);
           state.convertedCount++;
-        }catch(e){ console.error(e); updateRowStatus(item.id, i18n[lang].failed); }
+        }catch(e){ console.error(e); updateRowStatus(item.id, t.failed || 'Failed'); }
         done++; updateProgress(done,total);
       }
-      $('#zipBtn').disabled = state.convertedCount===0;
+      const zipBtn = $('#zipBtn');
+      zipBtn.disabled = state.convertedCount===0;
+      zipBtn.setAttribute('aria-disabled', state.convertedCount===0 ? 'true' : 'false');
       if (state.convertedCount>0) toast();
     }
 
     async function downloadZip(){
       if(!state.convertedCount) return;
-      const blob=await state.zip.generateAsync({ type:'blob' });
+      const blob=await state.zip.generateAsync({ type:'blob', streamFiles:true });
       saveAs(blob, 'converted_images.zip');
     }
 
     // ---------- CONTACT FORM (Formspree only) ----------
-    const FS_ENDPOINT = "https://formspree.io/f/mzzvqonw"; // your Formspree endpoint
+    const FS_ENDPOINT = "https://formspree.io/f/mzzvqonw";
 
     (function wireContactForm(){
       const form = document.getElementById('contactForm');
@@ -659,11 +673,7 @@
         e.preventDefault();
         statusEl.textContent = '';
 
-        if (!FS_ENDPOINT) {
-          statusEl.textContent = 'Contact temporarily unavailable. Please try again later.';
-          return;
-        }
-
+        if (!FS_ENDPOINT) { statusEl.textContent = 'Contact temporarily unavailable. Please try again later.'; return; }
         if (!emailEl.checkValidity()) { statusEl.textContent = 'Please enter a valid email.'; return; }
         if (!msgEl.value.trim()) { statusEl.textContent = 'Please write a message.'; return; }
 
@@ -673,11 +683,7 @@
           data.append('_subject', 'Contact from Free Image Converter');
           data.append('_replyto', emailEl.value);
 
-          const res = await fetch(FS_ENDPOINT, {
-            method: 'POST',
-            body: data,
-            headers: { 'Accept': 'application/json' }
-          });
+          const res = await fetch(FS_ENDPOINT, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
 
           if (res.ok) {
             statusEl.textContent = 'Message sent!';
@@ -709,6 +715,11 @@
     ;['dragleave','drop'].forEach(evt=>drop.addEventListener(evt,e=>{e.preventDefault();e.stopPropagation();drop.classList.remove('dragover')}))
     drop.addEventListener('drop',e=>{const dt=e.dataTransfer; if(dt?.files?.length) addFiles(dt.files)});
 
+    // منع فتح الملفات عند الإسقاط خارج المنطقة
+    ['dragover','drop'].forEach(evt=>{
+      window.addEventListener(evt, e=>{ e.preventDefault(); });
+    });
+
     function toggleControls(){
       const fmt=$('#fmtSelect').value;
       $('#qualityWrap').style.display=(fmt==='jpg'||fmt==='webp')?'':'none';
@@ -728,9 +739,7 @@
     $('#btnAR').addEventListener('click',()=>applyLang('ar'));
     applyLang('en');
 
-    const savedTheme = (()=>{
-      try{ return localStorage.getItem('theme') || 'auto'; }catch{ return 'auto'; }
-    })();
+    const savedTheme = (()=>{ try{ return localStorage.getItem('theme') || 'auto'; }catch{ return 'auto'; } })();
     setTheme(savedTheme);
     $('#themeLight').addEventListener('click',()=>setTheme('light'));
     $('#themeDark').addEventListener('click',()=>setTheme('dark'));
@@ -750,35 +759,52 @@
     document.querySelectorAll('dialog [data-close]').forEach(b=>{
       b.addEventListener('click', e=> e.target.closest('dialog')?.close());
     });
-
-    // Sync canonical/og url to actual path
-    try{
-      const href=location.href;
-      const can=document.querySelector('link[rel="canonical"]');
-      const ogu=document.querySelector('meta[property="og:url"]');
-      if (can) can.setAttribute('href', href);
-      if (ogu) ogu.setAttribute('content', href);
-    }catch{}
   </script>
+
+  <!-- GA Events wiring -->
   <script>
-  document.addEventListener("DOMContentLoaded", function(){
-    var cBtn = document.getElementById("convertBtn");
-    var zBtn = document.getElementById("downloadAllBtn");
-    var cForm = document.querySelector('form[action^="https://formspree.io/"]');
+    document.addEventListener("DOMContentLoaded", function(){
+      var cBtn = document.getElementById("convertBtn");
+      var zBtn = document.getElementById("zipBtn");
+      var cForm = document.getElementById("contactForm");
 
-    if (cBtn) cBtn.addEventListener("click", function(){
-      window.gtag && gtag("event", "convert_click", {event_category:"engagement", value:1});
-    });
+      if (cBtn) cBtn.addEventListener("click", function(){
+        window.gtag && gtag("event", "convert_click", {event_category:"engagement", value:1});
+      });
 
-    if (zBtn) zBtn.addEventListener("click", function(){
-      window.gtag && gtag("event", "zip_download", {event_category:"engagement", value:1});
-    });
+      if (zBtn) zBtn.addEventListener("click", function(){
+        window.gtag && gtag("event", "zip_download", {event_category:"engagement", value:1});
+      });
 
-    if (cForm) cForm.addEventListener("submit", function(){
-      window.gtag && gtag("event", "contact_submit", {event_category:"lead", value:1});
+      if (cForm) cForm.addEventListener("submit", function(){
+        window.gtag && gtag("event", "contact_submit", {event_category:"lead", value:1});
+      });
     });
-  });
-</script>
+  </script>
+
+  <!-- === Enhancements (toBlobSafe) === -->
+  <script>
+  // Lightweight safe toBlob wrapper with WebP fallback → PNG
+  (function(){
+    if (window.__toBlobSafeInstalled) return; window.__toBlobSafeInstalled = true;
+    window.toBlobSafe = function(canvas, mime, q){
+      return new Promise(function(resolve){
+        try {
+          canvas.toBlob(function(b){
+            if(!b && mime === 'image/webp'){
+              canvas.toBlob(function(b2){ resolve(b2); }, 'image/png', 1);
+            } else {
+              resolve(b);
+            }
+          }, mime, q);
+        } catch(e){
+          // Ultimate fallback
+          canvas.toBlob(function(b2){ resolve(b2); }, 'image/png', 1);
+        }
+      });
+    };
+  })();
+  </script>
+  <!-- === End Enhancements === -->
 </body>
 </html>
-
