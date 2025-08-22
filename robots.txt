@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://freeimageconverter.net/sitemap.xml
+Sitemap: https://www.freeimageconverter.net/sitemap.xml
