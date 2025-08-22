@@ -8,33 +8,29 @@
   <title>Free Image Converter | JPG to PNG, WebP, ICO Online (No Sign-Up)</title>
   <meta name="description" content="Free, no sign-up, no uploads. Fast JPG ↔ PNG ↔ WebP ↔ ICO converter with batch support, resize, and ZIP download. 100% client-side." />
   <meta name="keywords" content="free image converter, jpg to png, png to webp, webp to jpg, ico converter, no signup, batch converter, offline" />
-  <link rel="canonical" href="https://sabryfathy512.github.io/free-image-converter/" />
-  <!-- إن أردت hreflang فعلي لاحقًا، أنشئ مسارين منفصلين للغات. حالياً سنحتفظ بـ x-default فقط -->
-  <link rel="alternate" href="https://sabryfathy512.github.io/free-image-converter/" hreflang="x-default" />
+  <link rel="canonical" href="https://www.freeimageconverter.net/" />
+  <link rel="alternate" href="https://www.freeimageconverter.net/" hreflang="x-default" />
   <meta name="theme-color" content="#0b0c10">
 
-  <!-- Preload OG image to ensure fast social previews / first paint -->
   <link rel="preload" as="image" href="og.png">
 
   <!-- OG/Twitter -->
   <meta property="og:title" content="Free Image Converter | JPG to PNG, WebP, ICO Online (No Sign-Up)" />
   <meta property="og:description" content="Free forever · No login · No uploads. Drag-and-drop, batch, resize, ZIP. Ad-supported." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://sabryfathy512.github.io/free-image-converter/" />
-  <!-- استخدم صورة مستضافة فعلية، ليس data URI -->
-  <meta property="og:image" content="https://sabryfathy512.github.io/free-image-converter/og.png" />
+  <meta property="og:url" content="https://www.freeimageconverter.net/" />
+  <meta property="og:image" content="https://www.freeimageconverter.net/og.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:locale:alternate" content="ar_SA" />
 
-  <!-- Twitter card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Free Image Converter | JPG to PNG, WebP, ICO Online (No Sign-Up)" />
   <meta name="twitter:description" content="Free forever · No login · No uploads. Drag-and-drop, batch, resize, ZIP. 100% client-side." />
-  <meta name="twitter:image" content="https://sabryfathy512.github.io/free-image-converter/og.png" />
+  <meta name="twitter:image" content="https://www.freeimageconverter.net/og.png" />
 
-  <!-- JSON-LD: WebApplication (مبسّطة ونظيفة) -->
+  <!-- JSON-LD: WebApplication -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -42,7 +38,7 @@
     "name":"Free Image Converter",
     "applicationCategory":"MultimediaApplication",
     "operatingSystem":"Any",
-    "url":"https://sabryfathy512.github.io/free-image-converter/",
+    "url":"https://www.freeimageconverter.net/",
     "inLanguage":["en","ar"],
     "description":"Free, client-side image converter (JPG, PNG, WebP, ICO) with batch, resize, and ZIP download. No sign-up or uploads.",
     "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
@@ -54,7 +50,7 @@
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "@id": "https://sabryfathy512.github.io/free-image-converter/#faq",
+    "@id": "https://www.freeimageconverter.net/#faq",
     "mainEntity": [
       {"@type":"Question","name":"How to convert JPG to PNG free?","acceptedAnswer":{"@type":"Answer","text":"Drag and drop your JPG, choose PNG as output, then click Convert. No sign-up or upload required."}},
       {"@type":"Question","name":"Can I convert WebP to ICO without sign-up?","acceptedAnswer":{"@type":"Answer","text":"Yes. Select your WebP image, set output to ICO (256×256), and download instantly. Everything runs in your browser."}},
@@ -477,7 +473,7 @@
     async function analyzeFile(file){
       const url=URL.createObjectURL(file);
       try{
-        // احترام دوران EXIF
+        // Respect EXIF orientation
         const bmp=await createImageBitmap(file, { imageOrientation: 'from-image' }).catch(()=>null);
         if(bmp){
           const width=bmp.width,height=bmp.height;
@@ -536,14 +532,12 @@
       return { w: srcW, h: srcH };
     }
 
-    // Ensure unique names inside ZIP to avoid collisions
     function uniqueName(base, ext, used){
       let name = `${base}.${ext}`, i=1;
       while(used.has(name)){ name = `${base} (${i++}).${ext}`; }
       used.add(name); return name;
     }
 
-    // فلترة أدق للملفات المقبولة
     function acceptFiles(files){
       const okTypes = /^(image\/(png|jpeg|webp|avif|gif|bmp|x-icon|vnd\.microsoft\.icon))$/i;
       return Array.from(files).filter(f => okTypes.test(f.type) || /\.ico$/i.test(f.name));
@@ -715,7 +709,7 @@
     ;['dragleave','drop'].forEach(evt=>drop.addEventListener(evt,e=>{e.preventDefault();e.stopPropagation();drop.classList.remove('dragover')}))
     drop.addEventListener('drop',e=>{const dt=e.dataTransfer; if(dt?.files?.length) addFiles(dt.files)});
 
-    // منع فتح الملفات عند الإسقاط خارج المنطقة
+    // Prevent default open on page for out-of-zone drops
     ['dragover','drop'].forEach(evt=>{
       window.addEventListener(evt, e=>{ e.preventDefault(); });
     });
@@ -784,7 +778,6 @@
 
   <!-- === Enhancements (toBlobSafe) === -->
   <script>
-  // Lightweight safe toBlob wrapper with WebP fallback → PNG
   (function(){
     if (window.__toBlobSafeInstalled) return; window.__toBlobSafeInstalled = true;
     window.toBlobSafe = function(canvas, mime, q){
@@ -798,7 +791,6 @@
             }
           }, mime, q);
         } catch(e){
-          // Ultimate fallback
           canvas.toBlob(function(b2){ resolve(b2); }, 'image/png', 1);
         }
       });
