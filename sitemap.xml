@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <!-- Main Page -->
   <url>
     <loc>https://www.freeimageconverter.net/</loc>
@@ -17,64 +18,15 @@
   </url>
 
   <!-- Blog Articles -->
-  <url>
-    <loc>https://www.freeimageconverter.net/jpg-to-png.html</loc>
-    <lastmod>2025-08-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.freeimageconverter.net/jpg-vs-png-vs-webp.html</loc>
-    <lastmod>2025-08-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.freeimageconverter.net/free-tools.html</loc>
-    <lastmod>2025-08-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.freeimageconverter.net/png-to-ico.html</loc>
-    <lastmod>2025-08-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.freeimageconverter.net/batch-conversion.html</loc>
-    <lastmod>2025-08-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.freeimageconverter.net/webp-better.html</loc>
-    <lastmod>2025-08-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.freeimageconverter.net/reduce-image-size.html</loc>
-    <lastmod>2025-08-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.freeimageconverter.net/offline-vs-online.html</loc>
-    <lastmod>2025-08-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.freeimageconverter.net/transparent-jpg.html</loc>
-    <lastmod>2025-08-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.freeimageconverter.net/best-format-2025.html</loc>
-    <lastmod>2025-08-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <url><loc>https://www.freeimageconverter.net/jpg-to-png.html</loc><lastmod>2025-08-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.freeimageconverter.net/jpg-vs-png-vs-webp.html</loc><lastmod>2025-08-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.freeimageconverter.net/free-tools.html</loc><lastmod>2025-08-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.freeimageconverter.net/png-to-ico.html</loc><lastmod>2025-08-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.freeimageconverter.net/batch-conversion.html</loc><lastmod>2025-08-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.freeimageconverter.net/webp-better.html</loc><lastmod>2025-08-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.freeimageconverter.net/reduce-image-size.html</loc><lastmod>2025-08-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.freeimageconverter.net/offline-vs-online.html</loc><lastmod>2025-08-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.freeimageconverter.net/transparent-jpg.html</loc><lastmod>2025-08-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.freeimageconverter.net/best-format-2025.html</loc><lastmod>2025-08-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
 </urlset>
