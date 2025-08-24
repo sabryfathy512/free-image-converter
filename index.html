@@ -14,7 +14,8 @@
 
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<link rel="apple-touch-icon" href="/icons/icon-192.png">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<link rel="icon" href="/icon-192.png" sizes="192x192" type="image/png">
 <!-- OG/Twitter -->
   <meta property="og:title" content="Free Image Converter | JPG to PNG, WebP, ICO Online (No Sign-Up)" />
   <meta property="og:description" content="Free forever · No login · No uploads. Drag-and-drop, batch, resize, ZIP. Ad-supported." />
@@ -333,6 +334,8 @@
       <a href="#" data-modal="termsDlg">Terms</a> ·
       <a href="#" data-modal="contactDlg">Contact</a>
      · <a href="blog.html">Blog</a>
+        </div>
+
   </footer>
 
   <!-- Modals -->
@@ -599,11 +602,16 @@
     }
 
     function clearList(){
-      state.files.forEach(f=>{ URL.revokeObjectURL(f.url); URL.revokeObjectURL(f.thumbUrl); });
-      state.files=[]; state.zip=new JSZip(); state.convertedCount=0; fileBody.innerHTML=''; $('#zipBtn').disabled=true;
-      $('#zipBtn').setAttribute('aria-disabled','true');
-      updateProgress(0,0);
-    }
+  state.files.forEach(f=>{ URL.revokeObjectURL(f.url); URL.revokeObjectURL(f.thumbUrl); });
+  state.files = [];
+  state.zip = null;
+  state.convertedCount = 0;
+  fileBody.innerHTML = '';
+  $('#zipBtn').disabled = true;
+  $('#zipBtn').setAttribute('aria-disabled','true');
+  updateProgress(0,0);
+}
+
 
     function updateProgress(done, total){
       const pct = total? Math.round((done/total)*100) : 0;
@@ -655,38 +663,64 @@
       return { blob, outW: targetW, outH: targetH };
     }
 
-    async function runConversion(){
-      if(!state.files.length) return;
-      await ensureZipLibs();
-      state.zip = new JSZip();
-      if(!state.files.length) return;
-      const t = i18n[lang];
-      const fmt=$('#fmtSelect').value, quality=parseFloat($('#quality').value), bg=$('#bgColor').value;
-      state.zip=new JSZip(); state.convertedCount=0;
+ async function runConversion(){
+  if (!state.files.length) return;
 
-      const usedNames = new Set();
-      for(const item of state.files) updateRowStatus(item.id, t.processing || 'Processing…');
+  // حمّل المكتبات عند الحاجة وأنشئ ZIP مرة واحدة فقط
+  await ensureZipLibs();
+  state.zip = new JSZip();
+  state.convertedCount = 0;
 
-      let done=0, total=state.files.length; updateProgress(0,total);
-      for(const item of state.files){
-        try{
-          const base = item.file.name.replace(/\.[^.]+$/,'') || 'image';
-          const outName = uniqueName(base, extFor(fmt), usedNames);
-          const { blob, outW, outH } = await convertOne(item, fmt, quality, bg);
-          item.outBlob=blob; item.outName=outName;
-          setOutInfo(item.id, `${outW}×${outH} (${humanSize(blob.size)})`);
-          setDownloadBtn(item.id, outName, blob);
-          updateRowStatus(item.id, t.done || 'Ready');
-          state.zip.file(outName, blob);
-          state.convertedCount++;
-        }catch(e){ console.error(e); updateRowStatus(item.id, t.failed || 'Failed'); }
-        done++; updateProgress(done,total);
-      }
-      const zipBtn = $('#zipBtn');
-      zipBtn.disabled = state.convertedCount===0;
-      zipBtn.setAttribute('aria-disabled', state.convertedCount===0 ? 'true' : 'false');
-      if (state.convertedCount>0) toast();
+  const t       = i18n[lang];
+  const fmt     = $('#fmtSelect').value;
+  const quality = parseFloat($('#quality').value);
+  const bg      = $('#bgColor').value;
+
+  // تحديث حالة الصفوف
+  for (const item of state.files) updateRowStatus(item.id, t.processing || 'Processing…');
+
+  // شريط التقدم
+  let done = 0, total = state.files.length;
+  updateProgress(0, total);
+
+  // لتفادي تكرار الأسماء
+  const usedNames = new Set();
+
+  for (const item of state.files) {
+    try {
+      const base    = item.file.name.replace(/\.[^.]+$/, '') || 'image';
+      const outName = uniqueName(base, extFor(fmt), usedNames);
+
+      const { blob, outW, outH } = await convertOne(item, fmt, quality, bg);
+
+      item.outBlob = blob;
+      item.outName = outName;
+
+      setOutInfo(item.id, `${outW}×${outH} (${humanSize(blob.size)})`);
+      setDownloadBtn(item.id, outName, blob);
+      updateRowStatus(item.id, t.done || 'Ready');
+
+      // ضمّن الملف في الأرشيف
+      state.zip.file(outName, blob);
+      state.convertedCount++;
+    } catch (e) {
+      console.error(e);
+      updateRowStatus(item.id, t.failed || 'Failed');
     }
+
+    done++;
+    updateProgress(done, total);
+  }
+
+  // تفعيل زر ZIP
+  const zipBtn = $('#zipBtn');
+  const canZip = state.convertedCount > 0;
+  zipBtn.disabled = !canZip;
+  zipBtn.setAttribute('aria-disabled', canZip ? 'false' : 'true');
+
+  if (canZip) toast();
+}
+
 
     async function downloadZip(){
       if(!state.convertedCount) return;
