@@ -3,16 +3,86 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Why WebP Format is Better for Web Performance — Free Image Converter</title>
   <meta name="description" content="WebP often delivers smaller file sizes at similar quality, improving load speed and Core Web Vitals. Here’s when to use it—and when not to." />
   <meta name="theme-color" content="#0b0c10">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"/>
   <link rel="canonical" href="https://www.freeimageconverter.net/webp-better.html" />
+
+  <!-- PWA / Icons -->
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/icon-192.png" sizes="192x192">
+
+  <!-- Preconnects (optional perf) -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Why WebP Format is Better for Web Performance — Free Image Converter" />
+  <meta property="og:description" content="WebP usually achieves smaller sizes at similar quality, boosting load speed and Core Web Vitals. Learn when to use it and when not to." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.freeimageconverter.net/webp-better.html" />
+  <meta property="og:image" content="https://www.freeimageconverter.net/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Why WebP Format is Better for Web Performance — Free Image Converter" />
+  <meta name="twitter:description" content="WebP usually achieves smaller sizes at similar quality, boosting load speed and Core Web Vitals. Learn when to use it and when not to." />
+  <meta name="twitter:image" content="https://www.freeimageconverter.net/og.png" />
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Why WebP Format is Better for Web Performance",
+    "description":"WebP often delivers smaller file sizes at similar quality, improving load speed and Core Web Vitals. Here’s when to use it—and when not to.",
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://www.freeimageconverter.net/webp-better.html"},
+    "author":{"@type":"Organization","name":"Free Image Converter"},
+    "publisher":{"@type":"Organization","name":"Free Image Converter","logo":{"@type":"ImageObject","url":"https://www.freeimageconverter.net/icon-192.png"}},
+    "image":"https://www.freeimageconverter.net/og.png",
+    "datePublished":"2025-08-26",
+    "dateModified":"2025-08-26"
+  }
+  </script>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://www.freeimageconverter.net/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://www.freeimageconverter.net/blog.html"},
+      {"@type":"ListItem","position":3,"name":"Why WebP is Better","item":"https://www.freeimageconverter.net/webp-better.html"}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: FAQ (optional rich result) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"Is WebP supported by all modern browsers?","acceptedAnswer":{"@type":"Answer","text":"Yes, WebP is supported by all major modern browsers. For legacy environments, provide a PNG/JPG fallback."}},
+      {"@type":"Question","name":"Should I convert all images to WebP?","acceptedAnswer":{"@type":"Answer","text":"Convert photos and many UI assets to WebP, but keep PNG for strict lossless needs or SVG for vector icons/illustrations."}},
+      {"@type":"Question","name":"Does WebP support transparency and animation?","acceptedAnswer":{"@type":"Answer","text":"WebP supports alpha transparency and can store animation when encoded accordingly."}}
+    ]
+  }
+  </script>
+
   <style>
     :root{ --bg:#0b0c10; --bg-soft:#111318; --card:#151822; --muted:#8a93a2; --text:#e9edf5; --accent:#4f8cff; --border:#242836; color-scheme: light dark; }
     @media (prefers-color-scheme: light){ :root{ --bg:#f7f8fb; --bg-soft:#eef1f7; --card:#fff; --muted:#5d6576; --text:#121521; --border:#e6e9f0 } }
-    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font:16px/1.7 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.7 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
     a{color:var(--accent);text-decoration:none}
     .wrap{max-width:900px;margin:0 auto;padding:16px}
+    header{border-bottom:1px solid var(--border);background:color-mix(in oklab,var(--bg) 85%, transparent)}
     .card{background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
     .card .pad{padding:22px}
     h1{font-size:1.7rem;margin:6px 0 14px}
@@ -20,55 +90,147 @@
     p,li{font-size:1rem}
     .muted{color:var(--muted)}
     .toc{background:var(--bg-soft);border:1px solid var(--border);border-radius:12px;padding:12px;margin-bottom:16px}
+    .toc a{display:block;margin:4px 0}
     footer{border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:12px;padding:24px 0}
     .cta{display:inline-block;margin-top:14px;border:1px solid var(--border);background:var(--bg-soft);padding:10px 12px;border-radius:12px}
+    /* Table styling */
+    table{width:100%;border-collapse:separate;border-spacing:0;margin:12px 0;}
+    caption{caption-side:top;text-align:left;font-weight:600;margin-bottom:8px;color:var(--muted)}
+    th,td{padding:10px;border-top:1px solid var(--border);border-left:1px solid var(--border)}
+    th:last-child,td:last-child{border-right:1px solid var(--border)}
+    tr:last-child td{border-bottom:1px solid var(--border)}
+    th{background:var(--bg-soft);text-align:left}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    code,pre{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
   </style>
 </head>
 <body>
-  <header>
+  <a href="#main" class="sr-only" aria-label="Skip to main content">Skip to main content</a>
+
+  <header role="banner">
     <div class="wrap">
-      <p class="muted"><a href="index.html">Home</a> · <a href="blog.html">Blog</a></p>
+      <nav aria-label="Breadcrumb" class="muted" style="margin-bottom:6px">
+        <a href="/index.html">Home</a> · <a href="/blog.html">Blog</a> · <span aria-current="page">Why WebP is Better</span>
+      </nav>
       <h1>Why WebP Format is Better for Web Performance</h1>
       <p class="muted">WebP often delivers smaller file sizes at similar quality, improving load speed and Core Web Vitals. Here’s when to use it—and when not to.</p>
     </div>
   </header>
 
-  <main class="wrap">
-    <article class="card">
+  <main id="main" class="wrap" role="main">
+    <article class="card" itemscope itemtype="https://schema.org/Article">
       <div class="pad">
-        
-<p>Web performance is a big deal. Images are usually the heaviest resources on a page. <strong>WebP</strong> helps by delivering comparable quality at smaller sizes than legacy formats.</p>
 
-<h2>Benefits</h2>
-<ul>
-  <li><strong>Smaller files:</strong> Faster load, less bandwidth.</li>
-  <li><strong>Transparency:</strong> Supports alpha like PNG.</li>
-  <li><strong>Versatility:</strong> Lossy or lossless depending on your needs.</li>
-</ul>
+        <!-- TOC -->
+        <nav class="toc" aria-label="On this page">
+          <strong class="muted">On this page</strong>
+          <a href="#overview">Overview</a>
+          <a href="#benefits">Benefits</a>
+          <a href="#when-to-use">When to use WebP</a>
+          <a href="#when-to-avoid">When to avoid</a>
+          <a href="#comparison">At-a-glance comparison</a>
+          <a href="#try-tool">Try the tool</a>
+          <a href="#faq">FAQ</a>
+        </nav>
 
-<h2>When to use WebP</h2>
-<ul>
-  <li>Marketing pages and blogs with many photos.</li>
-  <li>E-commerce product galleries.</li>
-  <li>UI assets that don’t require SVG.</li>
-</ul>
+        <h2 id="overview">Overview</h2>
+        <p>Web performance is a big deal. Images are usually the heaviest resources on a page. <strong>WebP</strong> helps by delivering comparable quality at smaller sizes than legacy formats.</p>
 
-<h2>When to avoid</h2>
-<ul>
-  <li>Print workflows that require strict formats.</li>
-  <li>Very old browser targets (intranets, kiosks).</li>
-</ul>
+        <h2 id="benefits">Benefits</h2>
+        <ul>
+          <li><strong>Smaller files:</strong> Faster load, less bandwidth.</li>
+          <li><strong>Transparency:</strong> Supports alpha like PNG.</li>
+          <li><strong>Versatility:</strong> Lossy or lossless depending on your needs.</li>
+        </ul>
 
-<p>Use our converter to generate WebP variants alongside PNG or JPG, then serve the optimal format per device.</p>
+        <h2 id="when-to-use">When to use WebP</h2>
+        <ul>
+          <li>Marketing pages and blogs with many photos.</li>
+          <li>E-commerce product galleries.</li>
+          <li>UI assets that don’t require SVG.</li>
+        </ul>
 
-        <p><a class="cta" href="index.html">Try the Free Image Converter</a></p>
+        <h2 id="when-to-avoid">When to avoid</h2>
+        <ul>
+          <li>Print workflows that require strict formats.</li>
+          <li>Very old browser targets (intranets, kiosks).</li>
+        </ul>
+
+        <h2 id="comparison">At-a-glance comparison</h2>
+        <table>
+          <caption>WebP vs JPG vs PNG (quick view)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Format</th>
+              <th scope="col">Compression</th>
+              <th scope="col">Transparency</th>
+              <th scope="col">Animation</th>
+              <th scope="col">Typical use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">WebP</th>
+              <td>Lossy/Lossless</td>
+              <td>Yes</td>
+              <td>Yes (when encoded)</td>
+              <td>Modern web delivery</td>
+            </tr>
+            <tr>
+              <th scope="row">JPG</th>
+              <td>Lossy</td>
+              <td>No</td>
+              <td>No</td>
+              <td>Photos (legacy/compat)</td>
+            </tr>
+            <tr>
+              <th scope="row">PNG</th>
+              <td>Lossless</td>
+              <td>Yes (alpha)</td>
+              <td>No</td>
+              <td>UI, graphics, logos</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 id="try-tool">Try it now</h2>
+        <p><a class="cta" href="/index.html" aria-label="Try the Free Image Converter on the homepage">Try the Free Image Converter</a></p>
+
+        <h2 id="faq">FAQ</h2>
+        <details>
+          <summary>Should I serve only WebP?</summary>
+          <p>Serve WebP with automatic fallbacks (PNG/JPG) for legacy clients. Many CMS/CDNs handle this negotiation for you.</p>
+        </details>
+        <details>
+          <summary>Does WebP always look better than JPG?</summary>
+          <p>Not always—compare at the same visual quality. WebP often yields smaller files for similar perceived quality, but review each asset.</p>
+        </details>
+        <details>
+          <summary>What about SVG?</summary>
+          <p>Use SVG for vector icons/illustrations—it scales perfectly and is often smaller than any bitmap.</p>
+        </details>
+
+        <!-- Related posts -->
+        <p class="muted" style="margin-top:18px">You may also like:
+          <a href="/jpg-vs-png-vs-webp.html">JPG vs PNG vs WebP</a> ·
+          <a href="/reduce-image-size.html">How to Reduce Image Size</a>
+        </p>
       </div>
     </article>
   </main>
 
-  <footer>
-    <div class="wrap">© <span id="year"></span> Free Image Converter · <a href="index.html">Home</a></div>
+  <footer role="contentinfo">
+    <div class="wrap">© <span id="year"></span> Free Image Converter · <a href="/index.html">Home</a></div>
   </footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Safe SW registration (optional)
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(()=>{});
+      });
+    }
+  </script>
 </body>
 </html>
