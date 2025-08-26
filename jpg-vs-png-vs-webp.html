@@ -3,16 +3,86 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>What is the Difference Between JPG, PNG, and WebP? — Free Image Converter</title>
   <meta name="description" content="JPG vs PNG vs WebP: compression, transparency, and best use-cases. Learn which format to choose for photos, UI, and the web." />
   <meta name="theme-color" content="#0b0c10">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"/>
   <link rel="canonical" href="https://www.freeimageconverter.net/jpg-vs-png-vs-webp.html" />
+
+  <!-- PWA / Icons -->
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/icon-192.png" sizes="192x192">
+
+  <!-- Preconnects (optional perf) -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="What is the Difference Between JPG, PNG, and WebP? — Free Image Converter" />
+  <meta property="og:description" content="JPG vs PNG vs WebP explained: compression, transparency, and best use-cases." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.freeimageconverter.net/jpg-vs-png-vs-webp.html" />
+  <meta property="og:image" content="https://www.freeimageconverter.net/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="What is the Difference Between JPG, PNG, and WebP? — Free Image Converter" />
+  <meta name="twitter:description" content="JPG vs PNG vs WebP explained: compression, transparency, and best use-cases." />
+  <meta name="twitter:image" content="https://www.freeimageconverter.net/og.png" />
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"What is the Difference Between JPG, PNG, and WebP?",
+    "description":"JPG vs PNG vs WebP: compression, transparency, and best use-cases. Learn which format to choose for photos, UI, and the web.",
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://www.freeimageconverter.net/jpg-vs-png-vs-webp.html"},
+    "author":{"@type":"Organization","name":"Free Image Converter"},
+    "publisher":{"@type":"Organization","name":"Free Image Converter","logo":{"@type":"ImageObject","url":"https://www.freeimageconverter.net/icon-192.png"}},
+    "image":"https://www.freeimageconverter.net/og.png",
+    "datePublished":"2025-08-26",
+    "dateModified":"2025-08-26"
+  }
+  </script>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://www.freeimageconverter.net/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://www.freeimageconverter.net/blog.html"},
+      {"@type":"ListItem","position":3,"name":"JPG vs PNG vs WebP","item":"https://www.freeimageconverter.net/jpg-vs-png-vs-webp.html"}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: FAQ (optional rich result) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"Is WebP always smaller than JPG/PNG?","acceptedAnswer":{"@type":"Answer","text":"Often, yes—WebP usually achieves similar visual quality at smaller sizes, but results vary by image content."}},
+      {"@type":"Question","name":"When should I prefer PNG over WebP?","acceptedAnswer":{"@type":"Answer","text":"Choose PNG (or lossless WebP) when you need perfect edges, flat colors, or strict lossless quality, e.g., logos and UI sprites."}},
+      {"@type":"Question","name":"Does JPG support transparency?","acceptedAnswer":{"@type":"Answer","text":"No. Use PNG or WebP for transparent backgrounds."}}
+    ]
+  }
+  </script>
+
   <style>
     :root{ --bg:#0b0c10; --bg-soft:#111318; --card:#151822; --muted:#8a93a2; --text:#e9edf5; --accent:#4f8cff; --border:#242836; color-scheme: light dark; }
     @media (prefers-color-scheme: light){ :root{ --bg:#f7f8fb; --bg-soft:#eef1f7; --card:#fff; --muted:#5d6576; --text:#121521; --border:#e6e9f0 } }
-    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font:16px/1.7 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.7 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
     a{color:var(--accent);text-decoration:none}
     .wrap{max-width:900px;margin:0 auto;padding:16px}
+    header{border-bottom:1px solid var(--border);background:color-mix(in oklab,var(--bg) 85%, transparent)}
     .card{background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
     .card .pad{padding:22px}
     h1{font-size:1.7rem;margin:6px 0 14px}
@@ -20,57 +90,136 @@
     p,li{font-size:1rem}
     .muted{color:var(--muted)}
     .toc{background:var(--bg-soft);border:1px solid var(--border);border-radius:12px;padding:12px;margin-bottom:16px}
+    .toc a{display:block;margin:4px 0}
     footer{border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:12px;padding:24px 0}
     .cta{display:inline-block;margin-top:14px;border:1px solid var(--border);background:var(--bg-soft);padding:10px 12px;border-radius:12px}
+    /* Table styling */
+    table{width:100%;border-collapse:separate;border-spacing:0;margin:12px 0;}
+    caption{caption-side:top;text-align:left;font-weight:600;margin-bottom:8px;color:var(--muted)}
+    th,td{padding:10px;border-top:1px solid var(--border);border-left:1px solid var(--border)}
+    th:last-child,td:last-child{border-right:1px solid var(--border)}
+    tr:last-child td{border-bottom:1px solid var(--border)}
+    th{background:var(--bg-soft);text-align:left}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   </style>
 </head>
 <body>
-  <header>
+  <a href="#main" class="sr-only" aria-label="Skip to main content">Skip to main content</a>
+
+  <header role="banner">
     <div class="wrap">
-      <p class="muted"><a href="index.html">Home</a> · <a href="blog.html">Blog</a></p>
+      <nav aria-label="Breadcrumb" class="muted" style="margin-bottom:6px">
+        <a href="/index.html">Home</a> · <a href="/blog.html">Blog</a> · <span aria-current="page">JPG vs PNG vs WebP</span>
+      </nav>
       <h1>What is the Difference Between JPG, PNG, and WebP?</h1>
       <p class="muted">JPG vs PNG vs WebP: compression, transparency, and best use-cases. Learn which format to choose for photos, UI, and the web.</p>
     </div>
   </header>
 
-  <main class="wrap">
-    <article class="card">
+  <main id="main" class="wrap" role="main">
+    <article class="card" itemscope itemtype="https://schema.org/Article">
       <div class="pad">
-        
-<p>Choosing the right image format matters for quality, speed, and user experience. Here’s a practical breakdown of JPG, PNG, and WebP—when to use each and why.</p>
 
-<h2>Compression & quality</h2>
-<ul>
-  <li><strong>JPG:</strong> Lossy compression. Great for photographs; small files with acceptable quality.</li>
-  <li><strong>PNG:</strong> Lossless compression. Ideal for graphics, icons, and UI where edges must stay crisp.</li>
-  <li><strong>WebP:</strong> Modern format supporting both <em>lossy</em> and <em>lossless</em>; typically smaller than JPG/PNG for similar visual quality.</li>
-</ul>
+        <!-- TOC -->
+        <nav class="toc" aria-label="On this page">
+          <strong class="muted">On this page</strong>
+          <a href="#overview">Overview</a>
+          <a href="#compression">Compression & quality</a>
+          <a href="#transparency">Transparency & features</a>
+          <a href="#use-cases">Best use cases</a>
+          <a href="#workflow">Practical workflow</a>
+          <a href="#comparison">At-a-glance comparison</a>
+          <a href="#try-tool">Try the tool</a>
+        </nav>
 
-<h2>Transparency & features</h2>
-<ul>
-  <li><strong>JPG:</strong> No native transparency.</li>
-  <li><strong>PNG:</strong> Full alpha transparency—perfect for overlays.</li>
-  <li><strong>WebP:</strong> Supports transparency and animation (for certain encodes).</li>
-</ul>
+        <h2 id="overview">Overview</h2>
+        <p>Choosing the right image format matters for quality, speed, and user experience. Here’s a practical breakdown of JPG, PNG, and WebP—when to use each and why.</p>
 
-<h2>Best use cases</h2>
-<ul>
-  <li><strong>Photos:</strong> JPG or WebP (WebP often smaller).</li>
-  <li><strong>Logos & UI:</strong> PNG or lossless WebP.</li>
-  <li><strong>Web performance:</strong> WebP generally yields faster pages.</li>
-</ul>
+        <h2 id="compression">Compression & quality</h2>
+        <ul>
+          <li><strong>JPG:</strong> Lossy compression. Great for photographs; small files with acceptable quality.</li>
+          <li><strong>PNG:</strong> Lossless compression. Ideal for graphics, icons, and UI where edges must stay crisp.</li>
+          <li><strong>WebP:</strong> Modern format supporting both <em>lossy</em> and <em>lossless</em>; typically smaller than JPG/PNG for similar visual quality.</li>
+        </ul>
 
-<h2>Practical workflow</h2>
-<p>Designers often export master assets as PNG (lossless), then generate delivery variants in JPG or WebP depending on target platforms. With our converter, you can switch between formats privately and quickly, including batch conversions.</p>
+        <h2 id="transparency">Transparency & features</h2>
+        <ul>
+          <li><strong>JPG:</strong> No native transparency.</li>
+          <li><strong>PNG:</strong> Full alpha transparency—perfect for overlays.</li>
+          <li><strong>WebP:</strong> Supports transparency and animation (for certain encodes).</li>
+        </ul>
 
-        <p><a class="cta" href="index.html">Try the Free Image Converter</a></p>
+        <h2 id="use-cases">Best use cases</h2>
+        <ul>
+          <li><strong>Photos:</strong> JPG or WebP (WebP often smaller).</li>
+          <li><strong>Logos & UI:</strong> PNG or lossless WebP.</li>
+          <li><strong>Web performance:</strong> WebP generally yields faster pages.</li>
+        </ul>
+
+        <h2 id="workflow">Practical workflow</h2>
+        <p>Designers often export master assets as PNG (lossless), then generate delivery variants in JPG or WebP depending on target platforms. With our converter, you can switch between formats privately and quickly, including batch conversions.</p>
+
+        <h2 id="comparison">At-a-glance comparison</h2>
+        <table>
+          <caption>Quick format comparison</caption>
+          <thead>
+            <tr>
+              <th scope="col">Format</th>
+              <th scope="col">Compression</th>
+              <th scope="col">Transparency</th>
+              <th scope="col">Animation</th>
+              <th scope="col">Typical use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">JPG</th>
+              <td>Lossy</td>
+              <td>No</td>
+              <td>No</td>
+              <td>Photos</td>
+            </tr>
+            <tr>
+              <th scope="row">PNG</th>
+              <td>Lossless</td>
+              <td>Yes (alpha)</td>
+              <td>No</td>
+              <td>Logos, UI, graphics</td>
+            </tr>
+            <tr>
+              <th scope="row">WebP</th>
+              <td>Lossy/Lossless</td>
+              <td>Yes</td>
+              <td>Yes (when encoded)</td>
+              <td>Web delivery, mixed content</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 id="try-tool">Try it now</h2>
+        <p><a class="cta" href="/index.html" aria-label="Try the Free Image Converter on the homepage">Try the Free Image Converter</a></p>
+
+        <!-- Related posts -->
+        <p class="muted" style="margin-top:18px">You may also like:
+          <a href="/jpg-to-png.html">How to Convert JPG to PNG</a> ·
+          <a href="/batch-conversion.html">Batch conversion guide</a>
+        </p>
       </div>
     </article>
   </main>
 
-  <footer>
-    <div class="wrap">© <span id="year"></span> Free Image Converter · <a href="index.html">Home</a></div>
+  <footer role="contentinfo">
+    <div class="wrap">© <span id="year"></span> Free Image Converter · <a href="/index.html">Home</a></div>
   </footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Safe SW registration (optional)
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(()=>{});
+      });
+    }
+  </script>
 </body>
 </html>
