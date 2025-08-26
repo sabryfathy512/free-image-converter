@@ -3,10 +3,77 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Blog - Free Image Converter</title>
   <meta name="description" content="Guides and tips about image formats, conversion, and web performance. Learn how to convert JPG, PNG, WebP, and ICO with privacy-first methods." />
   <meta name="theme-color" content="#0b0c10">
   <link rel="canonical" href="https://www.freeimageconverter.net/blog.html" />
+
+  <!-- PWA / Icons -->
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="icon-192.png">
+
+  <!-- Preconnects (optional perf) -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Blog - Free Image Converter" />
+  <meta property="og:description" content="Guides and tips about image formats, conversion, and web performance." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.freeimageconverter.net/blog.html" />
+  <meta property="og:image" content="https://www.freeimageconverter.net/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blog - Free Image Converter" />
+  <meta name="twitter:description" content="Guides and tips about image formats, conversion, and web performance." />
+  <meta name="twitter:image" content="https://www.freeimageconverter.net/og.png" />
+
+  <!-- JSON-LD: Blog + ItemList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Free Image Converter Blog",
+    "url": "https://www.freeimageconverter.net/blog.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Free Image Converter",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.freeimageconverter.net/icon-192.png"
+      }
+    },
+    "blogPost": [
+      {"@type":"BlogPosting","headline":"How to Convert JPG to PNG Without Losing Quality","url":"https://www.freeimageconverter.net/jpg-to-png.html"},
+      {"@type":"BlogPosting","headline":"What is the Difference Between JPG, PNG, and WebP?","url":"https://www.freeimageconverter.net/jpg-vs-png-vs-webp.html"},
+      {"@type":"BlogPosting","headline":"Top 5 Free Tools to Convert Images Online (And Why Ours is Different)","url":"https://www.freeimageconverter.net/free-tools.html"},
+      {"@type":"BlogPosting","headline":"How to Convert Images to ICO for Favicon in Seconds","url":"https://www.freeimageconverter.net/png-to-ico.html"},
+      {"@type":"BlogPosting","headline":"Batch Image Conversion: Save Time by Converting Multiple Images at Once","url":"https://www.freeimageconverter.net/batch-conversion.html"},
+      {"@type":"BlogPosting","headline":"Why WebP Format is Better for Web Performance","url":"https://www.freeimageconverter.net/webp-better.html"},
+      {"@type":"BlogPosting","headline":"How to Reduce Image Size Without Losing Quality (Resize Guide)","url":"https://www.freeimageconverter.net/reduce-image-size.html"},
+      {"@type":"BlogPosting","headline":"Offline Image Converter vs Online Tools: Which is Better?","url":"https://www.freeimageconverter.net/offline-vs-online.html"},
+      {"@type":"BlogPosting","headline":"How to Create Transparent Background JPGs","url":"https://www.freeimageconverter.net/transparent-jpg.html"},
+      {"@type":"BlogPosting","headline":"The Complete Guide to Choosing the Right Image Format in 2025","url":"https://www.freeimageconverter.net/best-format-2025.html"}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://www.freeimageconverter.net/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://www.freeimageconverter.net/blog.html"}
+    ]
+  }
+  </script>
+
   <style>
     :root{
       --bg:#0b0c10; --bg-soft:#111318; --card:#151822; --muted:#8a93a2; --text:#e9edf5;
@@ -20,50 +87,94 @@
     body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
     a{color:var(--accent);text-decoration:none}
     .wrap{max-width:1100px;margin:0 auto;padding:16px}
+    header{border-bottom:1px solid var(--border);background:color-mix(in oklab,var(--bg) 85%, transparent)}
     .card{background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow)}
     .card .pad{padding:18px}
     h1{font-size:1.6rem;margin:8px 0 10px}
     h2{font-size:1.25rem;margin:0 0 8px}
-    ul.post-list{list-style: none;padding-left:0;margin:0}
+    ul.post-list{list-style:none;padding-left:0;margin:0}
     ul.post-list li{border-bottom:1px solid var(--border);padding:12px 0}
     .muted{color:var(--muted);font-size:13px}
-    header,footer{border-bottom:1px solid var(--border)}
     footer{border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:12px;padding:24px 0}
+    .post-excerpt{margin:4px 0 8px;color:var(--muted)}
+    .post-meta{font-size:12px;color:var(--muted)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   </style>
 </head>
 <body>
-  <header>
+  <header role="banner">
     <div class="wrap">
+      <nav aria-label="Breadcrumb" class="muted" style="margin-bottom:6px">
+        <a href="index.html">Home</a> · <span aria-current="page">Blog</span>
+      </nav>
       <h1>Blog</h1>
       <p class="muted">Tips, guides, and resources to help you work faster with images — with privacy in mind.</p>
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="card">
+  <main class="wrap" role="main">
+    <section class="card" aria-labelledby="postListTitle">
       <div class="pad">
-        <ul class="post-list">
-          <li><h2><a href="jpg-to-png.html">How to Convert JPG to PNG Without Losing Quality</a></h2></li>
-          <li><h2><a href="jpg-vs-png-vs-webp.html">What is the Difference Between JPG, PNG, and WebP?</a></h2></li>
-          <li><h2><a href="free-tools.html">Top 5 Free Tools to Convert Images Online (And Why Ours is Different)</a></h2></li>
-          <li><h2><a href="png-to-ico.html">How to Convert Images to ICO for Favicon in Seconds</a></h2></li>
-          <li><h2><a href="batch-conversion.html">Batch Image Conversion: Save Time by Converting Multiple Images at Once</a></h2></li>
-          <li><h2><a href="webp-better.html">Why WebP Format is Better for Web Performance</a></h2></li>
-          <li><h2><a href="reduce-image-size.html">How to Reduce Image Size Without Losing Quality (Resize Guide)</a></h2></li>
-          <li><h2><a href="offline-vs-online.html">Offline Image Converter vs Online Tools: Which is Better?</a></h2></li>
-          <li><h2><a href="transparent-jpg.html">How to Create Transparent Background JPGs</a></h2></li>
-          <li><h2><a href="best-format-2025.html">The Complete Guide to Choosing the Right Image Format in 2025</a></h2></li>
+        <h2 id="postListTitle" class="sr-only">All posts</h2>
+        <ul class="post-list" itemscope itemtype="https://schema.org/ItemList">
+          <meta itemprop="name" content="Free Image Converter Blog Posts"/>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <meta itemprop="position" content="1"/>
+            <h2 itemprop="name"><a itemprop="item" href="jpg-to-png.html">How to Convert JPG to PNG Without Losing Quality</a></h2>
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <meta itemprop="position" content="2"/>
+            <h2 itemprop="name"><a itemprop="item" href="jpg-vs-png-vs-webp.html">What is the Difference Between JPG, PNG, and WebP?</a></h2>
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <meta itemprop="position" content="3"/>
+            <h2 itemprop="name"><a itemprop="item" href="free-tools.html">Top 5 Free Tools to Convert Images Online (And Why Ours is Different)</a></h2>
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <meta itemprop="position" content="4"/>
+            <h2 itemprop="name"><a itemprop="item" href="png-to-ico.html">How to Convert Images to ICO for Favicon in Seconds</a></h2>
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <meta itemprop="position" content="5"/>
+            <h2 itemprop="name"><a itemprop="item" href="batch-conversion.html">Batch Image Conversion: Save Time by Converting Multiple Images at Once</a></h2>
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <meta itemprop="position" content="6"/>
+            <h2 itemprop="name"><a itemprop="item" href="webp-better.html">Why WebP Format is Better for Web Performance</a></h2>
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <meta itemprop="position" content="7"/>
+            <h2 itemprop="name"><a itemprop="item" href="reduce-image-size.html">How to Reduce Image Size Without Losing Quality (Resize Guide)</a></h2>
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <meta itemprop="position" content="8"/>
+            <h2 itemprop="name"><a itemprop="item" href="offline-vs-online.html">Offline Image Converter vs Online Tools: Which is Better?</a></h2>
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <meta itemprop="position" content="9"/>
+            <h2 itemprop="name"><a itemprop="item" href="transparent-jpg.html">How to Create Transparent Background JPGs</a></h2>
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <meta itemprop="position" content="10"/>
+            <h2 itemprop="name"><a itemprop="item" href="best-format-2025.html">The Complete Guide to Choosing the Right Image Format in 2025</a></h2>
+          </li>
         </ul>
       </div>
     </section>
   </main>
 
-  <footer>
+  <footer role="contentinfo">
     <div class="wrap">© <span id="year"></span> Free Image Converter · <a href="index.html">Home</a></div>
   </footer>
 
   <script>
-    document.getElementById('year').textContent=new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Register SW if present (lightweight, safe on sub-paths)
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(()=>{});
+      });
+    }
   </script>
 </body>
 </html>
