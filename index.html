@@ -12,12 +12,18 @@
   <link rel="alternate" href="https://www.freeimageconverter.net/" hreflang="x-default" />
   <meta name="theme-color" content="#0b0c10">
 
-<link rel="manifest" href="/manifest.webmanifest">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<link rel="apple-touch-icon" href="/icon-192.png">
-<link rel="icon" href="/icon-192.png" sizes="192x192" type="image/png">
-  <link rel="icon" href="/favicon.ico">
-<!-- OG/Twitter -->
+  <!-- PWA/icons (relative paths for sub-path safety) -->
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="icon" href="icon-192.png" sizes="192x192" type="image/png">
+  <link rel="icon" href="favicon.ico">
+
+  <!-- Preconnects for faster third-party loads -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+
+  <!-- OG/Twitter -->
   <meta property="og:title" content="Free Image Converter | JPG to PNG, WebP, ICO Online (No Sign-Up)" />
   <meta property="og:description" content="Free forever · No login · No uploads. Drag-and-drop, batch, resize, ZIP. Ad-supported." />
   <meta property="og:type" content="website" />
@@ -106,9 +112,10 @@
     input[type="range"]{padding:0;height:40px}
     .hint{color:var(--muted);font-size:12px}
     .buttons{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
-    .btn{border:1px solid var(--border);background:var(--accent);color:white;padding:10px 14px;border-radius:12px;cursor:pointer;font-weight:600;box-shadow:var(--shadow)}
-    .btn.secondary{background:var(--bg-soft);color:var(--text)}
+    .btn{border:1px solid var(--border);background:var(--accent);color:white;padding:12px 16px;border-radius:12px;cursor:pointer;font-weight:600;box-shadow:var(--shadow);font-size:1.05rem;display:inline-flex;align-items:center;gap:8px}
+    .btn.secondary{background:var(--bg-soft);color:var(--text);opacity:.95}
     .btn.danger{background:var(--danger)}
+    .btn:focus{outline:none;box-shadow:0 0 0 3px color-mix(in oklab,var(--accent) 35%, transparent)}
     .drop{border:2px dashed var(--border);border-radius:14px;padding:24px;text-align:center;background:repeating-linear-gradient(45deg,color-mix(in oklab,var(--card) 95%,transparent),color-mix(in oklab,var(--card) 95%,transparent) 8px,transparent 8px,transparent 16px);transition:background .15s ease,border-color .15s ease;color:var(--muted)}
     .drop.dragover{border-color:var(--accent);background:color-mix(in oklab,var(--accent) 10%,var(--card) 90%)}
     .list{width:100%;border-collapse:collapse}
@@ -125,26 +132,19 @@
     dialog::backdrop{background:rgba(0,0,0,.35)}
     .modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:12px}
     #contactDlg input[type="email"], #contactDlg textarea{width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--border);background:var(--bg-soft);color:var(--text)}
-  
+
     /* === Phase 1 UX Upgrade === */
-    .btn{font-size:1.05rem;padding:12px 16px;display:inline-flex;align-items:center;gap:8px}
-    .btn.secondary{opacity:.95}
-    .btn:focus{outline:none;box-shadow:0 0 0 3px color-mix(in oklab,var(--accent) 35%, transparent)}
-    .theme-toggle button{font-weight:600}
-    /* Preview panel */
     .preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     @media (max-width:980px){.preview-grid{grid-template-columns:1fr}}
     .preview-card{background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:12px}
     .preview-meta{color:var(--muted);font-size:12px;margin-top:6px}
     .preview-canvas{width:100%;height:auto;display:block;max-height:380px;background:repeating-conic-gradient(from 0deg, #ccc 0% 25%, #eee 0% 50%) 50%/16px 16px}
-    /* Stronger dark mode contrast */
     [data-theme="dark"] .drop{background:color-mix(in oklab,var(--card) 92%, transparent)}
     [data-theme="dark"] .btn.secondary{background:color-mix(in oklab,var(--bg-soft) 80%, transparent)}
-    /* Icon helpers */
     .icon{width:18px;height:18px;display:inline-block;vertical-align:middle}
-    
-</style>
-<!-- Google Analytics 4 -->
+  </style>
+
+  <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZT3BHHBZQ3"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -267,8 +267,8 @@
 
           <div class="buttons">
             <input type="file" id="picker" accept="image/*,.ico" multiple hidden />
-            <button class="btn" id="pickBtn" type="button" aria-label="Choose files">Choose Files</button>
-            <button class="btn secondary" id="clearBtn" type="button" aria-label="Clear file list">Clear List</button>
+            <button class="btn" id="pickBtn" type="button" aria-label="Choose files">📂 Choose Files</button>
+            <button class="btn secondary" id="clearBtn" type="button" aria-label="Clear file list">🧹 Clear List</button>
             <span class="hint" id="privacyNote">Free · No login · All processing in your browser.</span>
           </div>
 
@@ -281,7 +281,6 @@
             </div>
           </div>
 
-          
           <!-- === Live Preview (Phase 1) === -->
           <section class="card" id="livePreview" style="margin-top:12px; display:none" aria-live="polite">
             <div class="pad">
@@ -302,8 +301,8 @@
           </section>
 
           <div class="buttons" style="margin-top:12px">
-            <button class="btn" id="convertBtn" type="button" aria-label="Start conversion">Convert</button>
-            <button class="btn secondary" id="zipBtn" type="button" disabled aria-label="Download all files as ZIP" aria-disabled="true">Download All (ZIP)</button>
+            <button class="btn" id="convertBtn" type="button" aria-label="Start conversion">⚡ Convert</button>
+            <button class="btn secondary" id="zipBtn" type="button" disabled aria-label="Download all files as ZIP" aria-disabled="true">🗜️ Download All (ZIP)</button>
           </div>
 
           <!-- In-content Ad Slot -->
@@ -344,24 +343,24 @@
         </div>
       </aside>
     </div>
-<section class="card" id="blogLinks" style="margin-top:16px">
-  <div class="pad">
-    <h3>From the Blog</h3>
-    <ul style="padding-left:18px;margin-top:8px">
-      <li><a href="jpg-to-png.html">How to Convert JPG to PNG Without Losing Quality</a></li>
-      <li><a href="jpg-vs-png-vs-webp.html">What is the Difference Between JPG, PNG, and WebP?</a></li>
-      <li><a href="free-tools.html">Top 5 Free Tools to Convert Images Online (And Why Ours is Different)</a></li>
-      <li><a href="png-to-ico.html">How to Convert Images to ICO for Favicon in Seconds</a></li>
-      <li><a href="batch-conversion.html">Batch Image Conversion: Save Time by Converting Multiple Images at Once</a></li>
-      <li><a href="webp-better.html">Why WebP Format is Better for Web Performance</a></li>
-      <li><a href="reduce-image-size.html">How to Reduce Image Size Without Losing Quality (Resize Guide)</a></li>
-      <li><a href="offline-vs-online.html">Offline Image Converter vs Online Tools: Which is Better?</a></li>
-      <li><a href="transparent-jpg.html">How to Create Transparent Background JPGs</a></li>
-      <li><a href="best-format-2025.html">The Complete Guide to Choosing the Right Image Format in 2025</a></li>
-    </ul>
-  </div>
-</section>
-    
+
+    <section class="card" id="blogLinks" style="margin-top:16px">
+      <div class="pad">
+        <h3>From the Blog</h3>
+        <ul style="padding-left:18px;margin-top:8px">
+          <li><a href="jpg-to-png.html">How to Convert JPG to PNG Without Losing Quality</a></li>
+          <li><a href="jpg-vs-png-vs-webp.html">What is the Difference Between JPG, PNG, and WebP?</a></li>
+          <li><a href="free-tools.html">Top 5 Free Tools to Convert Images Online (And Why Ours is Different)</a></li>
+          <li><a href="png-to-ico.html">How to Convert Images to ICO for Favicon in Seconds</a></li>
+          <li><a href="batch-conversion.html">Batch Image Conversion: Save Time by Converting Multiple Images at Once</a></li>
+          <li><a href="webp-better.html">Why WebP Format is Better for Web Performance</a></li>
+          <li><a href="reduce-image-size.html">How to Reduce Image Size Without Losing Quality (Resize Guide)</a></li>
+          <li><a href="offline-vs-online.html">Offline Image Converter vs Online Tools: Which is Better?</a></li>
+          <li><a href="transparent-jpg.html">How to Create Transparent Background JPGs</a></li>
+          <li><a href="best-format-2025.html">The Complete Guide to Choosing the Right Image Format in 2025</a></li>
+        </ul>
+      </div>
+    </section>
   </main>
 
   <div class="toast" id="toast" role="status" aria-live="polite">✅ Conversion complete</div>
@@ -372,9 +371,8 @@
       <a href="#" data-modal="privacyDlg">Privacy</a> ·
       <a href="#" data-modal="termsDlg">Terms</a> ·
       <a href="#" data-modal="contactDlg">Contact</a>
-     · <a href="blog.html">Blog</a>
-        </div>
-
+      · <a href="blog.html">Blog</a>
+    </div>
   </footer>
 
   <!-- Modals -->
@@ -486,7 +484,7 @@
       document.documentElement.dir=(l==='ar')?'rtl':'ltr';
       $('#appTitle').textContent=t.title; $('#freeBadge').textContent=t.badge;
 
-      // Sync meta for description/OG description + title
+      // Sync meta
       document.title = (l==='en')
         ? "Free Image Converter | JPG to PNG, WebP, ICO Online (No Sign-Up)"
         : "محوّل صيغ الصور مجانًا | JPG إلى PNG و WebP و ICO (بدون تسجيل)";
@@ -638,19 +636,23 @@
       $('#zipBtn').disabled=true;
       $('#zipBtn').setAttribute('aria-disabled','true');
       updateProgress(0, state.files.length);
+      updatePreview(); // update live preview
     }
 
     function clearList(){
-  state.files.forEach(f=>{ URL.revokeObjectURL(f.url); URL.revokeObjectURL(f.thumbUrl); });
-  state.files = [];
-  state.zip = null;
-  state.convertedCount = 0;
-  fileBody.innerHTML = '';
-  $('#zipBtn').disabled = true;
-  $('#zipBtn').setAttribute('aria-disabled','true');
-  updateProgress(0,0);
-}
-
+      state.files.forEach(f=>{ URL.revokeObjectURL(f.url); URL.revokeObjectURL(f.thumbUrl); });
+      state.files = [];
+      state.zip = null;
+      state.convertedCount = 0;
+      fileBody.innerHTML = '';
+      $('#zipBtn').disabled = true;
+      $('#zipBtn').setAttribute('aria-disabled','true');
+      updateProgress(0,0);
+      if (livePreview) livePreview.style.display = 'none';
+      if (prevOrig && prevOrig.width && prevOrig.height) prevOrig.getContext('2d').clearRect(0,0,prevOrig.width,prevOrig.height);
+      if (prevOut && prevOut.width && prevOut.height) prevOut.getContext('2d').clearRect(0,0,prevOut.width,prevOut.height);
+      if (metaOrig) metaOrig.textContent=''; if (metaOut) metaOut.textContent='';
+    }
 
     function updateProgress(done, total){
       const pct = total? Math.round((done/total)*100) : 0;
@@ -702,64 +704,57 @@
       return { blob, outW: targetW, outH: targetH };
     }
 
- async function runConversion(){
-  if (!state.files.length) return;
+    async function runConversion(){
+      if (!state.files.length) return;
+      await ensureZipLibs();
+      state.zip = new JSZip();
+      state.convertedCount = 0;
 
-  // حمّل المكتبات عند الحاجة وأنشئ ZIP مرة واحدة فقط
-  await ensureZipLibs();
-  state.zip = new JSZip();
-  state.convertedCount = 0;
+      const t       = i18n[lang];
+      const fmt     = $('#fmtSelect').value;
+      const quality = parseFloat($('#quality').value);
+      const bg      = $('#bgColor').value;
 
-  const t       = i18n[lang];
-  const fmt     = $('#fmtSelect').value;
-  const quality = parseFloat($('#quality').value);
-  const bg      = $('#bgColor').value;
+      for (const item of state.files) updateRowStatus(item.id, t.processing || 'Processing…');
 
-  // تحديث حالة الصفوف
-  for (const item of state.files) updateRowStatus(item.id, t.processing || 'Processing…');
+      let done = 0, total = state.files.length;
+      updateProgress(0, total);
 
-  // شريط التقدم
-  let done = 0, total = state.files.length;
-  updateProgress(0, total);
+      const usedNames = new Set();
 
-  // لتفادي تكرار الأسماء
-  const usedNames = new Set();
+      for (const item of state.files) {
+        try {
+          const base    = item.file.name.replace(/\.[^.]+$/, '') || 'image';
+          const outName = uniqueName(base, extFor(fmt), usedNames);
 
-  for (const item of state.files) {
-    try {
-      const base    = item.file.name.replace(/\.[^.]+$/, '') || 'image';
-      const outName = uniqueName(base, extFor(fmt), usedNames);
+          const { blob, outW, outH } = await convertOne(item, fmt, quality, bg);
 
-      const { blob, outW, outH } = await convertOne(item, fmt, quality, bg);
+          item.outBlob = blob;
+          item.outName = outName;
 
-      item.outBlob = blob;
-      item.outName = outName;
+          setOutInfo(item.id, `${outW}×${outH} (${humanSize(blob.size)})`);
+          setDownloadBtn(item.id, outName, blob);
+          updateRowStatus(item.id, t.done || 'Ready');
 
-      setOutInfo(item.id, `${outW}×${outH} (${humanSize(blob.size)})`);
-      setDownloadBtn(item.id, outName, blob);
-      updateRowStatus(item.id, t.done || 'Ready');
+          state.zip.file(outName, blob);
+          state.convertedCount++;
+        } catch (e) {
+          console.error(e);
+          updateRowStatus(item.id, t.failed || 'Failed');
+        }
 
-      // ضمّن الملف في الأرشيف
-      state.zip.file(outName, blob);
-      state.convertedCount++;
-    } catch (e) {
-      console.error(e);
-      updateRowStatus(item.id, t.failed || 'Failed');
+        done++;
+        updateProgress(done, total);
+      }
+
+      const zipBtn = $('#zipBtn');
+      const canZip = state.convertedCount > 0;
+      zipBtn.disabled = !canZip;
+      zipBtn.setAttribute('aria-disabled', canZip ? 'false' : 'true');
+
+      if (canZip) toast();
+      updatePreview();
     }
-
-    done++;
-    updateProgress(done, total);
-  }
-
-  // تفعيل زر ZIP
-  const zipBtn = $('#zipBtn');
-  const canZip = state.convertedCount > 0;
-  zipBtn.disabled = !canZip;
-  zipBtn.setAttribute('aria-disabled', canZip ? 'false' : 'true');
-
-  if (canZip) toast();
-}
-
 
     async function downloadZip(){
       if(!state.convertedCount) return;
@@ -872,7 +867,6 @@
     });
   </script>
 
-
   <script>
     // === Phase 1: Live Preview ===
     const livePreview = document.getElementById('livePreview');
@@ -930,7 +924,7 @@
         const targetW = (fmt==='ico') ? 256 : dims.w;
         const targetH = (fmt==='ico') ? 256 : dims.h;
 
-        // Encode to get approx output size
+        // Encode to approximate output size
         const temp = document.createElement('canvas');
         await drawToCanvas(temp, bmp, targetW, targetH, bg);
         let blob = await window.toBlobSafe(temp, mimeFor(fmt), (fmt==='jpg' || fmt==='webp') ? q : undefined);
@@ -950,43 +944,10 @@
       }
     }
 
-    // Recompute preview when relevant controls change
     ['#fmtSelect','#quality','#bgColor','#resizeMode','#percentVal','#maxWidth'].forEach(sel=>{
       const el = document.querySelector(sel);
       if (el) el.addEventListener('input', updatePreview);
       if (el) el.addEventListener('change', updatePreview);
-    });
-
-    // Hook into addFiles / clearList to maintain preview
-    const __addFiles = addFiles;
-    addFiles = async function(files){
-      await __addFiles(files);
-      updatePreview();
-    };
-    const __clearList = clearList;
-    clearList = function(){
-      __clearList();
-      if (livePreview) livePreview.style.display = 'none';
-      if (prevOrig && prevOrig.width && prevOrig.height) prevOrig.getContext('2d').clearRect(0,0,prevOrig.width,prevOrig.height);
-      if (prevOut && prevOut.width && prevOut.height) prevOut.getContext('2d').clearRect(0,0,prevOut.width,prevOut.height);
-      if (metaOrig) metaOrig.textContent=''; if (metaOut) metaOut.textContent='';
-    };
-
-    // Add icons to main buttons at runtime without breaking i18n
-    document.addEventListener('DOMContentLoaded', ()=>{
-      const map = [
-        ['pickBtn','📂 '],
-        ['clearBtn','🧹 '],
-        ['convertBtn','⚡ '],
-        ['zipBtn','🗜️ ']
-      ];
-      for (const [id, icon] of map){
-        const el = document.getElementById(id);
-        if (el && !el.dataset.iconized){
-          el.dataset.iconized = '1';
-          el.insertAdjacentText('afterbegin', icon);
-        }
-      }
     });
 
     // Kick once
@@ -1036,12 +997,27 @@
   })();
   </script>
   <!-- === End Enhancements === -->
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js').catch(console.error);
-    });
-  }
-</script>
+
+  <script>
+    // Service Worker registration (relative path + fast activation hook)
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+          .then(reg => {
+            // Ask the active SW (if any) to skip waiting when a new one is installed
+            if (navigator.serviceWorker.controller) {
+              try { navigator.serviceWorker.controller.postMessage('SKIP_WAITING'); } catch {}
+            }
+          })
+          .catch(console.error);
+
+        // Optional: react when a new controller takes over (e.g., show toast or reload)
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+          // Uncomment if you prefer auto-refresh:
+          // location.reload();
+        });
+      });
+    }
+  </script>
 </body>
 </html>
