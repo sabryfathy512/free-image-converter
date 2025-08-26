@@ -3,16 +3,86 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>How to Convert Images to ICO for Favicon in Seconds — Free Image Converter</title>
   <meta name="description" content="Generate crisp ICO favicons from PNGs directly in your browser—centered, resized to 256×256, and ready for production." />
   <meta name="theme-color" content="#0b0c10">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"/>
   <link rel="canonical" href="https://www.freeimageconverter.net/png-to-ico.html" />
+
+  <!-- PWA / Icons -->
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/icon-192.png" sizes="192x192">
+
+  <!-- Preconnects (optional perf) -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="How to Convert Images to ICO for Favicon in Seconds — Free Image Converter" />
+  <meta property="og:description" content="Create pixel‑perfect ICO favicons from PNGs, processed locally in your browser—no uploads." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.freeimageconverter.net/png-to-ico.html" />
+  <meta property="og:image" content="https://www.freeimageconverter.net/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How to Convert Images to ICO for Favicon in Seconds — Free Image Converter" />
+  <meta name="twitter:description" content="Create pixel‑perfect ICO favicons from PNGs, processed locally in your browser—no uploads." />
+  <meta name="twitter:image" content="https://www.freeimageconverter.net/og.png" />
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"How to Convert Images to ICO for Favicon in Seconds",
+    "description":"Generate crisp ICO favicons from PNGs directly in your browser—centered, resized to 256×256, and ready for production.",
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://www.freeimageconverter.net/png-to-ico.html"},
+    "author":{"@type":"Organization","name":"Free Image Converter"},
+    "publisher":{"@type":"Organization","name":"Free Image Converter","logo":{"@type":"ImageObject","url":"https://www.freeimageconverter.net/icon-192.png"}},
+    "image":"https://www.freeimageconverter.net/og.png",
+    "datePublished":"2025-08-26",
+    "dateModified":"2025-08-26"
+  }
+  </script>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://www.freeimageconverter.net/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://www.freeimageconverter.net/blog.html"},
+      {"@type":"ListItem","position":3,"name":"PNG to ICO","item":"https://www.freeimageconverter.net/png-to-ico.html"}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: FAQ (optional rich result) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"Do I need multiple sizes inside the ICO?","acceptedAnswer":{"@type":"Answer","text":"An ICO can bundle several sizes (e.g., 16, 32, 48, 64, 128, 256). A 256×256 source works well—browsers downscale as needed."}},
+      {"@type":"Question","name":"Is PNG accepted as a favicon?","acceptedAnswer":{"@type":"Answer","text":"Modern browsers support PNG favicons, but ICO remains the most widely compatible single-file format, especially for legacy contexts."}},
+      {"@type":"Question","name":"Will this work offline?","acceptedAnswer":{"@type":"Answer","text":"Yes. Once loaded, the client‑side converter processes images locally and keeps working without network."}}
+    ]
+  }
+  </script>
+
   <style>
     :root{ --bg:#0b0c10; --bg-soft:#111318; --card:#151822; --muted:#8a93a2; --text:#e9edf5; --accent:#4f8cff; --border:#242836; color-scheme: light dark; }
     @media (prefers-color-scheme: light){ :root{ --bg:#f7f8fb; --bg-soft:#eef1f7; --card:#fff; --muted:#5d6576; --text:#121521; --border:#e6e9f0 } }
-    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font:16px/1.7 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.7 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
     a{color:var(--accent);text-decoration:none}
     .wrap{max-width:900px;margin:0 auto;padding:16px}
+    header{border-bottom:1px solid var(--border);background:color-mix(in oklab,var(--bg) 85%, transparent)}
     .card{background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
     .card .pad{padding:22px}
     h1{font-size:1.7rem;margin:6px 0 14px}
@@ -20,52 +90,112 @@
     p,li{font-size:1rem}
     .muted{color:var(--muted)}
     .toc{background:var(--bg-soft);border:1px solid var(--border);border-radius:12px;padding:12px;margin-bottom:16px}
+    .toc a{display:block;margin:4px 0}
     footer{border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:12px;padding:24px 0}
     .cta{display:inline-block;margin-top:14px;border:1px solid var(--border);background:var(--bg-soft);padding:10px 12px;border-radius:12px}
+    /* Table styling */
+    table{width:100%;border-collapse:separate;border-spacing:0;margin:12px 0;}
+    caption{caption-side:top;text-align:left;font-weight:600;margin-bottom:8px;color:var(--muted)}
+    th,td{padding:10px;border-top:1px solid var(--border);border-left:1px solid var(--border)}
+    th:last-child,td:last-child{border-right:1px solid var(--border)}
+    tr:last-child td{border-bottom:1px solid var(--border)}
+    th{background:var(--bg-soft);text-align:left}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    code,pre{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
   </style>
 </head>
 <body>
-  <header>
+  <a href="#main" class="sr-only" aria-label="Skip to main content">Skip to main content</a>
+
+  <header role="banner">
     <div class="wrap">
-      <p class="muted"><a href="index.html">Home</a> · <a href="blog.html">Blog</a></p>
+      <nav aria-label="Breadcrumb" class="muted" style="margin-bottom:6px">
+        <a href="/index.html">Home</a> · <a href="/blog.html">Blog</a> · <span aria-current="page">PNG to ICO</span>
+      </nav>
       <h1>How to Convert Images to ICO for Favicon in Seconds</h1>
       <p class="muted">Generate crisp ICO favicons from PNGs directly in your browser—centered, resized to 256×256, and ready for production.</p>
     </div>
   </header>
 
-  <main class="wrap">
-    <article class="card">
+  <main id="main" class="wrap" role="main">
+    <article class="card" itemscope itemtype="https://schema.org/Article">
       <div class="pad">
-        
-<p>Favicons are the tiny icons browsers show in tabs and bookmarks. The traditional format is <strong>ICO</strong>. Here’s how to create a pixel-perfect favicon in seconds.</p>
 
-<h2>Steps</h2>
-<ol>
-  <li>Open the converter and add your logo PNG.</li>
-  <li>Choose <strong>ICO (256×256)</strong> as the output format.</li>
-  <li>Click <strong>Convert</strong>, then download your <code>.ico</code> file.</li>
-</ol>
+        <!-- TOC -->
+        <nav class="toc" aria-label="On this page">
+          <strong class="muted">On this page</strong>
+          <a href="#overview">Overview</a>
+          <a href="#steps">Steps</a>
+          <a href="#tips">Tips for best results</a>
+          <a href="#integrate">Integrate in your site</a>
+          <a href="#try-tool">Try the tool</a>
+          <a href="#faq">FAQ</a>
+        </nav>
 
-<h2>Tips for best results</h2>
-<ul>
-  <li>Start from a square PNG with plenty of margin around the logo.</li>
-  <li>Avoid tiny text; keep shapes bold and simple.</li>
-  <li>Use a transparent background for clean edges.</li>
-</ul>
+        <h2 id="overview">Overview</h2>
+        <p>Favicons are the tiny icons browsers show in tabs and bookmarks. The traditional format is <strong>ICO</strong>. Here’s how to create a pixel-perfect favicon in seconds.</p>
 
-<h2>Integrate in your site</h2>
-<pre><code>&lt;link rel="icon" href="/favicon.ico" sizes="any"&gt;</code></pre>
+        <h2 id="steps">Steps</h2>
+        <ol>
+          <li>Open the converter and add your logo PNG.</li>
+          <li>Choose <strong>ICO (256×256)</strong> as the output format.</li>
+          <li>Click <strong>Convert</strong>, then download your <code>.ico</code> file.</li>
+        </ol>
 
-<p>That’s all—your favicon is production-ready.</p>
+        <h2 id="tips">Tips for best results</h2>
+        <ul>
+          <li>Start from a square PNG with generous padding around the logo.</li>
+          <li>Avoid tiny text; keep shapes bold and simple for small sizes.</li>
+          <li>Use a transparent background for clean edges.</li>
+        </ul>
 
-        <p><a class="cta" href="index.html">Try the Free Image Converter</a></p>
+        <h2 id="integrate">Integrate in your site</h2>
+        <pre><code>&lt;link rel="icon" href="/favicon.ico" sizes="any"&gt;
+&lt;!-- Optional modern extras --&gt;
+&lt;link rel="icon" type="image/svg+xml" href="/favicon.svg"&gt;
+&lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt;
+&lt;link rel="manifest" href="/manifest.webmanifest"&gt;</code></pre>
+
+        <p>That’s all—your favicon is production-ready.</p>
+
+        <h2 id="try-tool">Try it now</h2>
+        <p><a class="cta" href="/index.html" aria-label="Try the Free Image Converter on the homepage">Try the Free Image Converter</a></p>
+
+        <h2 id="faq">FAQ</h2>
+        <details>
+          <summary>What size should I upload?</summary>
+          <p>A square 512×512 or 1024×1024 PNG works great; the tool will scale to 256×256 for the ICO while preserving edges.</p>
+        </details>
+        <details>
+          <summary>Can I include multiple sizes inside one ICO?</summary>
+          <p>Yes—ICO supports multiple embedded sizes. A single 256×256 icon is typically sufficient for modern browsers, which downscale cleanly.</p>
+        </details>
+        <details>
+          <summary>Will it work offline?</summary>
+          <p>Yes. After the page loads once, conversions run locally and continue to work without a network connection.</p>
+        </details>
+
+        <!-- Related posts -->
+        <p class="muted" style="margin-top:18px">You may also like:
+          <a href="/jpg-vs-png-vs-webp.html">JPG vs PNG vs WebP</a> ·
+          <a href="/free-tools.html">Top 5 Free Tools</a>
+        </p>
       </div>
     </article>
   </main>
 
-  <footer>
-    <div class="wrap">© <span id="year"></span> Free Image Converter · <a href="index.html">Home</a></div>
+  <footer role="contentinfo">
+    <div class="wrap">© <span id="year"></span> Free Image Converter · <a href="/index.html">Home</a></div>
   </footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Safe SW registration (optional)
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(()=>{});
+      });
+    }
+  </script>
 </body>
 </html>
