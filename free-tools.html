@@ -7,12 +7,13 @@
   <title>Top 5 Free Tools to Convert Images Online (And Why Ours is Different) — Free Image Converter</title>
   <meta name="description" content="Compare common ways to convert images for free—client-side tools, desktop apps, and typical upload-based sites—and see why privacy matters." />
   <meta name="theme-color" content="#0b0c10">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"/>
   <link rel="canonical" href="https://www.freeimageconverter.net/free-tools.html" />
 
   <!-- PWA / Icons -->
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" href="favicon.ico">
-  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/icon-192.png" sizes="192x192">
 
   <!-- Preconnects (optional perf) -->
   <link rel="preconnect" href="https://www.googletagmanager.com">
@@ -56,7 +57,32 @@
     "itemListElement":[
       {"@type":"ListItem","position":1,"name":"Home","item":"https://www.freeimageconverter.net/"},
       {"@type":"ListItem","position":2,"name":"Blog","item":"https://www.freeimageconverter.net/blog.html"},
-      {"@type":"ListItem","position":3,"name":"Top 5 Free Tools"}
+      {"@type":"ListItem","position":3,"name":"Top 5 Free Tools","item":"https://www.freeimageconverter.net/free-tools.html"}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: FAQ (optional rich result) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Are client-side image converters safe?",
+        "acceptedAnswer": {"@type": "Answer","text": "Yes—client-side tools run entirely in your browser, so files never leave your device."}
+      },
+      {
+        "@type": "Question",
+        "name": "What formats does your converter support?",
+        "acceptedAnswer": {"@type": "Answer","text": "JPG, PNG, WebP, AVIF, and BMP with batch processing, optional resize, and ZIP download."}
+      },
+      {
+        "@type": "Question",
+        "name": "Is there a file size limit?",
+        "acceptedAnswer": {"@type": "Answer","text": "Limits are primarily your device memory and browser constraints, not a server cap."}
+      }
     ]
   }
   </script>
@@ -79,20 +105,30 @@
     .toc a{display:block;margin:4px 0}
     footer{border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:12px;padding:24px 0}
     .cta{display:inline-block;margin-top:14px;border:1px solid var(--border);background:var(--bg-soft);padding:10px 12px;border-radius:12px}
+    /* Table styling */
+    table{width:100%;border-collapse:separate;border-spacing:0;margin:12px 0;}
+    caption{caption-side:top;text-align:left;font-weight:600;margin-bottom:8px;color:var(--muted)}
+    th,td{padding:10px;border-top:1px solid var(--border);border-left:1px solid var(--border)}
+    th:last-child,td:last-child{border-right:1px solid var(--border)}
+    tr:last-child td{border-bottom:1px solid var(--border)}
+    th{background:var(--bg-soft);text-align:left}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   </style>
 </head>
 <body>
+  <a href="#main" class="sr-only" aria-label="Skip to main content">Skip to main content</a>
+
   <header role="banner">
     <div class="wrap">
       <nav aria-label="Breadcrumb" class="muted" style="margin-bottom:6px">
-        <a href="index.html">Home</a> · <a href="blog.html">Blog</a>
+        <a href="/index.html">Home</a> · <a href="/blog.html">Blog</a> · <span aria-current="page">Top 5 Free Tools</span>
       </nav>
       <h1>Top 5 Free Tools to Convert Images Online (And Why Ours is Different)</h1>
-      <p class="muted">Compare common ways to convert images for free—client-side tools, desktop apps, and typical upload-based sites—and see why privacy matters.</p>
+      <p class="muted">Compare common ways to convert images for free—client-side tools, desktop apps, and typical upload-based online services. Here’s how they differ and where our approach stands out.</p>
     </div>
   </header>
 
-  <main class="wrap" role="main">
+  <main id="main" class="wrap" role="main">
     <article class="card" itemscope itemtype="https://schema.org/Article">
       <div class="pad">
 
@@ -102,7 +138,9 @@
           <a href="#client-side">Client-side web tools</a>
           <a href="#desktop-apps">Desktop apps</a>
           <a href="#upload-sites">Upload-based sites</a>
+          <a href="#comparison">At-a-glance comparison</a>
           <a href="#why-different">Why ours is different</a>
+          <a href="#faq">FAQ</a>
           <a href="#try-tool">Try the tool</a>
         </nav>
 
@@ -117,29 +155,80 @@
         <h2 id="upload-sites">3) Upload-based sites</h2>
         <p>These upload your files to a server and return results. It’s convenient across devices, but slower for large files and may raise privacy concerns. Free tiers may limit usage.</p>
 
+        <h2 id="comparison">At-a-glance comparison</h2>
+        <table aria-describedby="comparison-note">
+          <caption>Comparison of common approaches</caption>
+          <thead>
+            <tr>
+              <th scope="col">Approach</th>
+              <th scope="col">Privacy</th>
+              <th scope="col">Speed</th>
+              <th scope="col">Batch Support</th>
+              <th scope="col">Best for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Client-side tools</th>
+              <td>High (no uploads)</td>
+              <td>Fast (local)</td>
+              <td>Yes (ZIP download)</td>
+              <td>Everyday conversions on any device</td>
+            </tr>
+            <tr>
+              <th scope="row">Desktop apps</th>
+              <td>High (local)</td>
+              <td>Fast (depends on machine)</td>
+              <td>Usually</td>
+              <td>Power users or repeated workflows</td>
+            </tr>
+            <tr>
+              <th scope="row">Upload-based sites</th>
+              <td>Varies (files go to server)</td>
+              <td>Slower for large files</td>
+              <td>Varies</td>
+              <td>Cross-device use, lightweight tasks</td>
+            </tr>
+          </tbody>
+        </table>
+        <p id="comparison-note" class="muted">Note: Actual performance depends on your device, network, and file sizes.</p>
+
         <h2 id="why-different">Why ours is different</h2>
         <ul>
           <li><strong>Zero uploads:</strong> Conversions stay on your machine.</li>
           <li><strong>Batch &amp; ZIP:</strong> Process many files and download all at once.</li>
           <li><strong>No sign-up:</strong> Start converting instantly.</li>
+          <li><strong>Common formats:</strong> JPG, PNG, WebP, AVIF, BMP.</li>
         </ul>
 
-        <p>For most everyday tasks, a privacy-first, client-side converter is the fastest route from file to result.</p>
+        <h2 id="faq">FAQ</h2>
+        <details>
+          <summary>Are client-side image converters safe?</summary>
+          <p>Yes—client-side tools run entirely in your browser, so files never leave your device.</p>
+        </details>
+        <details>
+          <summary>What formats does your converter support?</summary>
+          <p>JPG, PNG, WebP, AVIF, and BMP. You can also batch convert and optionally resize before downloading a single ZIP.</p>
+        </details>
+        <details>
+          <summary>Is there a file size limit?</summary>
+          <p>Because processing happens locally, the main constraint is your device memory and browser limits—not a server cap.</p>
+        </details>
 
         <h2 id="try-tool">Try it now</h2>
-        <p><a class="cta" href="index.html">Try the Free Image Converter</a></p>
+        <p><a class="cta" href="/index.html" aria-label="Try the Free Image Converter tool on the homepage">Try the Free Image Converter</a></p>
 
         <!-- Related posts -->
         <p class="muted" style="margin-top:18px">You may also like:
-          <a href="batch-conversion.html">Batch conversion guide</a> ·
-          <a href="jpg-vs-png-vs-webp.html">JPG vs PNG vs WebP</a>
+          <a href="/batch-conversion.html">Batch conversion guide</a> ·
+          <a href="/jpg-vs-png-vs-webp.html">JPG vs PNG vs WebP</a>
         </p>
       </div>
     </article>
   </main>
 
   <footer role="contentinfo">
-    <div class="wrap">© <span id="year"></span> Free Image Converter · <a href="index.html">Home</a></div>
+    <div class="wrap">© <span id="year"></span> Free Image Converter · <a href="/index.html">Home</a></div>
   </footer>
 
   <script>
@@ -147,7 +236,7 @@
     // Safe SW registration (optional)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js').catch(()=>{});
+        navigator.serviceWorker.register('/sw.js').catch(()=>{});
       });
     }
   </script>
