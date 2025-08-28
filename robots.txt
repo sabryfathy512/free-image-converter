@@ -1,8 +1,8 @@
 User-agent: *
 Allow: /
 
-# Main Sitemap index (points to EN + AR)
+# Main Sitemap (unified EN + AR)
 Sitemap: https://www.freeimageconverter.net/sitemap.xml
 
-# Optional: Host directive
+# Host directive (optional but recommended if you enforce www)
 Host: www.freeimageconverter.net
