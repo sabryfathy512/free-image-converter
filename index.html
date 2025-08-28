@@ -7,9 +7,9 @@
   <!-- SEO -->
   <title>Free Image Converter | JPG to PNG, WebP, ICO Online (No Sign-Up)</title>
   <meta name="description" content="Free, no sign-up, no uploads. Fast JPG ↔ PNG ↔ WebP ↔ ICO converter with batch support, resize, and ZIP download. 100% client-side." />
-  <meta name="keywords" content="free image converter, jpg to png, png to webp, webp to jpg, ico converter, no signup, batch converter, offline" />
   <link rel="canonical" href="https://www.freeimageconverter.net/" />
   <link rel="alternate" href="https://www.freeimageconverter.net/" hreflang="x-default" />
+  <!-- Note: No hreflang=ar until a real /ar/ HTML is published -->
   <meta name="theme-color" content="#0b0c10">
 
   <!-- PWA/icons (relative paths for sub-path safety) -->
@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="preconnect" href="https://www.googletagmanager.com">
 
-  <!-- OG/Twitter -->
+  <!-- OG/Twitter (unchanged) -->
   <meta property="og:title" content="Free Image Converter | JPG to PNG, WebP, ICO Online (No Sign-Up)" />
   <meta property="og:description" content="Free forever · No login · No uploads. Drag-and-drop, batch, resize, ZIP. Ad-supported." />
   <meta property="og:type" content="website" />
@@ -54,7 +54,7 @@
   }
   </script>
 
-  <!-- JSON-LD: FAQPage -->
+  <!-- JSON-LD: FAQPage (kept) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -67,6 +67,17 @@
       {"@type":"Question","name":"Is the tool free forever and without login?","acceptedAnswer":{"@type":"Answer","text":"Yes. It is 100% free and ad-supported. No account or sign-up is required."}},
       {"@type":"Question","name":"Can I batch convert multiple images and download as ZIP?","acceptedAnswer":{"@type":"Answer","text":"Yes. Add multiple files, click Convert, then download each or all together as a ZIP archive."}}
     ]
+  }
+  </script>
+
+  <!-- JSON-LD: WebSite (optional improvement) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"Free Image Converter",
+    "url":"https://www.freeimageconverter.net/",
+    "inLanguage":["en","ar"]
   }
   </script>
 
@@ -121,7 +132,12 @@
     .list{width:100%;border-collapse:collapse}
     .list th,.list td{border-bottom:1px solid var(--border);padding:10px;vertical-align:middle}
     .thumb{width:52px;height:52px;object-fit:cover;border-radius:10px;border:1px solid var(--border)}
-    .ad-slot{background:var(--bg-soft);border:1px dashed var(--border);border-radius:16px;min-height:120px;display:grid;place-items:center;color:var(--muted)}
+    .ad-slot{background:var(--bg-soft);border:1px dashed var(--border);border-radius:16px;display:grid;place-items:center;color:var(--muted)}
+    /* Reserved ad heights to prevent CLS */
+    #adTop{min-height:90px}                 /* 728x90 */
+    .ad-slot.incontent{min-height:250px}    /* 300x250 in-content */
+    .ad-slot.sidebar{min-height:250px}      /* 300x250 sidebar */
+
     .toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--card);color:var(--text);border:1px solid var(--border);padding:12px 16px;border-radius:12px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:transform .2s ease,opacity .2s ease}
     .toast.show{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:auto}
     .progress{height:10px;background:var(--bg-soft);border:1px solid var(--border);border-radius:999px;overflow:hidden}
@@ -133,7 +149,7 @@
     .modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:12px}
     #contactDlg input[type="email"], #contactDlg textarea{width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--border);background:var(--bg-soft);color:var(--text)}
 
-    /* === Phase 1 UX Upgrade === */
+    /* === Live Preview UI === */
     .preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     @media (max-width:980px){.preview-grid{grid-template-columns:1fr}}
     .preview-card{background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:12px}
@@ -281,7 +297,7 @@
             </div>
           </div>
 
-          <!-- === Live Preview (Phase 1) === -->
+          <!-- === Live Preview === -->
           <section class="card" id="livePreview" style="margin-top:12px; display:none" aria-live="polite">
             <div class="pad">
               <h3 id="previewTitle">Live Preview</h3>
@@ -305,8 +321,8 @@
             <button class="btn secondary" id="zipBtn" type="button" disabled aria-label="Download all files as ZIP" aria-disabled="true">🗜️ Download All (ZIP)</button>
           </div>
 
-          <!-- In-content Ad Slot -->
-          <div class="ad-slot" style="margin:12px 0;" aria-label="Advertisement">
+          <!-- In-content Ad Slot (CLS-safe) -->
+          <div class="ad-slot incontent" style="margin:12px 0;" aria-label="Advertisement">
             <span>Ad Slot — In-content / Responsive</span>
           </div>
 
@@ -327,7 +343,7 @@
 
       <aside class="card">
         <div class="pad">
-          <div class="ad-slot" style="min-height:250px" aria-label="Advertisement">
+          <div class="ad-slot sidebar" aria-label="Advertisement">
             <span>Ad Slot — 300×250 / Responsive</span>
           </div>
           <h3 style="margin-top:18px" id="faqTitle">Notes</h3>
@@ -359,6 +375,28 @@
           <li><a href="transparent-jpg.html">How to Create Transparent Background JPGs</a></li>
           <li><a href="best-format-2025.html">The Complete Guide to Choosing the Right Image Format in 2025</a></li>
         </ul>
+      </div>
+    </section>
+
+    <!-- Visible FAQ to match JSON-LD -->
+    <section class="card" id="faq-ui" style="margin-top:16px">
+      <div class="pad">
+        <h3>FAQ</h3>
+        <details><summary>How to convert JPG to PNG free?</summary>
+          <p>Drag and drop your JPG, choose PNG as output, then click Convert. No sign-up or upload required.</p>
+        </details>
+        <details><summary>Can I convert WebP to ICO without sign-up?</summary>
+          <p>Yes. Select your WebP image, set output to ICO (256×256), and download instantly. Everything runs in your browser.</p>
+        </details>
+        <details><summary>Does this converter support large images?</summary>
+          <p>Yes. Processing happens locally using the Canvas API. The main limit is your device memory.</p>
+        </details>
+        <details><summary>Is the tool free forever and without login?</summary>
+          <p>Yes. It is 100% free and ad-supported. No account or sign-up is required.</p>
+        </details>
+        <details><summary>Can I batch convert multiple images and download as ZIP?</summary>
+          <p>Yes. Add multiple files, click Convert, then download each or all together as a ZIP archive.</p>
+        </details>
       </div>
     </section>
   </main>
@@ -484,7 +522,7 @@
       document.documentElement.dir=(l==='ar')?'rtl':'ltr';
       $('#appTitle').textContent=t.title; $('#freeBadge').textContent=t.badge;
 
-      // Sync meta
+      // Sync meta (note: crawlers read initial HTML; this is UX)
       document.title = (l==='en')
         ? "Free Image Converter | JPG to PNG, WebP, ICO Online (No Sign-Up)"
         : "محوّل صيغ الصور مجانًا | JPG إلى PNG و WebP و ICO (بدون تسجيل)";
@@ -525,11 +563,11 @@
       tr.id=`row-${item.id}`;
       const alt = (i18n[lang]?.altThumb || "Thumbnail") + ": " + (item.file?.name || "image");
       tr.innerHTML=`
-        <td><img class="thumb" src="${item.thumbUrl}" alt="${alt}"></td>
+        <td><img class="thumb" src="${item.thumbUrl}" alt="${alt}" loading="lazy" decoding="async"></td>
         <td class="nowrap">${item.file.name}</td>
         <td>${Math.round(item.imgW)}×${Math.round(item.imgH)}</td>
         <td id="out-${item.id}">—</td>
-        <td id="st-${item.id}">—</td>
+        <td id="st-${item.id}" aria-live="polite">—</td>
         <td id="dl-${item.id}">—</td>`;
       return tr;
     }
@@ -868,7 +906,7 @@
   </script>
 
   <script>
-    // === Phase 1: Live Preview ===
+    // === Live Preview ===
     const livePreview = document.getElementById('livePreview');
     const prevOrig = document.getElementById('prevOrig');
     const prevOut  = document.getElementById('prevOut');
@@ -999,21 +1037,19 @@
   <!-- === End Enhancements === -->
 
   <script>
-    // Service Worker registration (relative path + fast activation hook)
+    // Service Worker registration (kept simple; SW itself can handle SKIP_WAITING)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js')
           .then(reg => {
-            // Ask the active SW (if any) to skip waiting when a new one is installed
             if (navigator.serviceWorker.controller) {
               try { navigator.serviceWorker.controller.postMessage('SKIP_WAITING'); } catch {}
             }
           })
           .catch(console.error);
 
-        // Optional: react when a new controller takes over (e.g., show toast or reload)
         navigator.serviceWorker.addEventListener('controllerchange', () => {
-          // Uncomment if you prefer auto-refresh:
+          // Optional: auto-refresh on new SW
           // location.reload();
         });
       });
