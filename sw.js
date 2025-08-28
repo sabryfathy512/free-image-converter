@@ -1,18 +1,19 @@
-/* Free Image Converter — SW
-   - HTML: network-first (fallback to cache)
+/* Free Image Converter — Service Worker
+   - HTML: network-first (fallback to cache/offline)
    - Assets (CSS/JS/Images/Manifest): stale-while-revalidate
-   - Works at root or subpath
+   - Supports EN + AR
 */
-const VERSION = 'v3';
+const VERSION = 'v4';
 const CACHE_STATIC = `fic-static-${VERSION}`;
 
 const SCOPE = self.registration?.scope || self.location.origin;
 const u = (path) => new URL(path, SCOPE).toString();
 
-// --- Core assets (added index-ar.html) ---
+// --- Core assets ---
 const CORE_ASSETS = [
+  // Home
   u('index.html'),
-  u('index-ar.html'),
+  u('ar/index.html'),
   u('blog.html'),
   // CSS
   u('assets/css/app.css'),
@@ -29,7 +30,7 @@ const CORE_ASSETS = [
   u('icon-512.png'),
   u('maskable-512.png'),
   u('manifest.webmanifest'),
-  // Articles
+  // Blog articles (EN)
   u('jpg-to-png.html'),
   u('jpg-vs-png-vs-webp.html'),
   u('free-tools.html'),
@@ -40,44 +41,48 @@ const CORE_ASSETS = [
   u('offline-vs-online.html'),
   u('transparent-jpg.html'),
   u('best-format-2025.html'),
+  // Offline fallback
+  u('offline.html'),
 ];
 
-// HTML fallbacks depending on requested page
+// --- HTML fallbacks ---
 function htmlFallbackFor(url) {
   const p = url.pathname.toLowerCase();
-  if (p.endsWith('/index-ar.html') || p.endsWith('index-ar.html')) return u('index-ar.html');
-  // لو حد فتح الجذر أو أي صفحة إنجليزية
+  if (p.startsWith('/ar')) return u('ar/index.html');
   return u('index.html');
 }
 
-// Enable navigation preload (optional but helpful)
+// --- Install: cache core assets ---
+self.addEventListener('install', (event) => {
+  event.waitUntil((async () => {
+    const cache = await caches.open(CACHE_STATIC);
+    try {
+      await cache.addAll(CORE_ASSETS);
+    } catch {
+      // Fallback: add individually (don’t fail whole install)
+      await Promise.allSettled(
+        CORE_ASSETS.map((req) => cache.add(req).catch(() => null))
+      );
+    }
+    self.skipWaiting();
+  })());
+});
+
+// --- Activate: clean old caches + enable preload ---
 self.addEventListener('activate', (event) => {
   event.waitUntil((async () => {
-    try { if (self.registration.navigationPreload) await self.registration.navigationPreload.enable(); } catch {}
+    try {
+      if (self.registration.navigationPreload) {
+        await self.registration.navigationPreload.enable();
+      }
+    } catch {}
     const keys = await caches.keys();
     await Promise.all(keys.filter((k) => k !== CACHE_STATIC).map((k) => caches.delete(k)));
     await self.clients.claim();
   })());
 });
 
-self.addEventListener('install', (event) => {
-  event.waitUntil((async () => {
-    const cache = await caches.open(CACHE_STATIC);
-    // حاول addAll أولاً
-    try {
-      await cache.addAll(CORE_ASSETS);
-    } catch {
-      // لو فشل عنصر، أضفه فرديًا بدون إفشال التنصيب كله
-      const results = await Promise.allSettled(
-        CORE_ASSETS.map((req) => cache.add(req))
-      );
-      // (اختياري) ممكن تسجّل العناصر اللي فشلت لكن مش ضروري
-    }
-    self.skipWaiting();
-  })());
-});
-
-// helper: put in cache
+// --- Helper: put in cache ---
 async function putInCache(cacheName, request, response) {
   try {
     const cache = await caches.open(cacheName);
@@ -86,6 +91,7 @@ async function putInCache(cacheName, request, response) {
   return response;
 }
 
+// --- Fetch handler ---
 self.addEventListener('fetch', (event) => {
   const req = event.request;
   const url = new URL(req.url);
@@ -96,40 +102,41 @@ self.addEventListener('fetch', (event) => {
   // تجاهل التحليلات
   if (/googletagmanager|google-analytics/i.test(url.href)) return;
 
-  // وثائق/تنقّل: network-first + preload + fallback مناسب
+  // --- HTML (network-first) ---
   const isHTML = req.mode === 'navigate' || req.destination === 'document' || (req.headers.get('accept') || '').includes('text/html');
   if (isHTML) {
     event.respondWith((async () => {
       try {
-        // جرّب navigation preload أولًا
+        // Preload response
         const preloaded = await event.preloadResponse;
         if (preloaded) {
           putInCache(CACHE_STATIC, req, preloaded.clone());
           return preloaded;
         }
-        // الشبكة
+        // Network
         const net = await fetch(req, { credentials: 'same-origin' });
         putInCache(CACHE_STATIC, req, net.clone());
         return net;
       } catch {
-        // كاش لنفس الطلب
+        // Cached page
         const cached = await caches.match(req);
         if (cached) return cached;
-        // fallback بحسب الصفحة المطلوبة (ar أو en)
+        // Fallback (AR/EN home)
         const fb = await caches.match(htmlFallbackFor(url));
-        return fb || Response.error();
+        if (fb) return fb;
+        // Offline fallback page
+        return caches.match(u('offline.html')) || Response.error();
       }
     })());
     return;
   }
 
-  // باقي الأصول: stale-while-revalidate
+  // --- Static assets: stale-while-revalidate ---
   if (['style', 'script', 'image', 'font', 'manifest'].includes(req.destination)) {
     event.respondWith((async () => {
       const cache = await caches.open(CACHE_STATIC);
       const cached = await cache.match(req);
       const netPromise = fetch(req).then((res) => {
-        // لا تضع الردود الغامقة عادةً
         if (res && res.status === 200 && res.type !== 'opaque') {
           putInCache(CACHE_STATIC, req, res.clone());
         }
@@ -140,13 +147,13 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // الافتراضي: حاول كاش ثم شبكة
+  // --- Default: cache-first fallback to network ---
   event.respondWith(
     caches.match(req).then((c) => c || fetch(req).catch(() => c))
   );
 });
 
-// رسالة تفعيل فوري
+// --- Message: SKIP_WAITING support ---
 self.addEventListener('message', (e) => {
   if (e.data === 'SKIP_WAITING') self.skipWaiting();
 });
