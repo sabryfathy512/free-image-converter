@@ -1,11 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap>
-    <loc>https://www.freeimageconverter.net/sitemap-en.xml</loc>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Home EN -->
+  <url>
+    <loc>https://www.freeimageconverter.net/</loc>
     <lastmod>2025-08-28</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.freeimageconverter.net/sitemap-ar.xml</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.freeimageconverter.net/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.freeimageconverter.net/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.freeimageconverter.net/"/>
+  </url>
+
+  <!-- Home AR -->
+  <url>
+    <loc>https://www.freeimageconverter.net/ar/</loc>
     <lastmod>2025-08-28</lastmod>
-  </sitemap>
-</sitemapindex>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.freeimageconverter.net/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.freeimageconverter.net/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.freeimageconverter.net/"/>
+  </url>
+
+  <!-- Landing Pages EN -->
+  <url>
+    <loc>https://www.freeimageconverter.net/jpg-to-png/</loc>
+    <lastmod>2025-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.freeimageconverter.net/jpg-to-png/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.freeimageconverter.net/jpg-to-png/"/>
+  </url>
+
+  <url>
+    <loc>https://www.freeimageconverter.net/png-to-jpg/</loc>
+    <lastmod>2025-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.freeimageconverter.net/png-to-jpg/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.freeimageconverter.net/png-to-jpg/"/>
+  </url>
+
+  <url>
+    <loc>https://www.freeimageconverter.net/jpg-to-webp/</loc>
+    <lastmod>2025-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.freeimageconverter.net/jpg-to-webp/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.freeimageconverter.net/jpg-to-webp/"/>
+  </url>
+
+  <url>
+    <loc>https://www.freeimageconverter.net/webp-to-png/</loc>
+    <lastmod>2025-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.freeimageconverter.net/webp-to-png/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.freeimageconverter.net/webp-to-png/"/>
+  </url>
+
+  <url>
+    <loc>https://www.freeimageconverter.net/ico-converter/</loc>
+    <lastmod>2025-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.freeimageconverter.net/ico-converter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.freeimageconverter.net/ico-converter/"/>
+  </url>
+
+  <!-- Blog Index -->
+  <url>
+    <loc>https://www.freeimageconverter.net/blog.html</loc>
+    <lastmod>2025-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.freeimageconverter.net/blog.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.freeimageconverter.net/blog.html"/>
+  </url>
+
+  <!-- Blog Articles EN -->
+  <url><loc>https://www.freeimageconverter.net/jpg-to-png.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.freeimageconverter.net/jpg-vs-png-vs-webp.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.freeimageconverter.net/free-tools.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.freeimageconverter.net/png-to-ico.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.freeimageconverter.net/batch-conversion.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.freeimageconverter.net/webp-better.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.freeimageconverter.net/reduce-image-size.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.freeimageconverter.net/offline-vs-online.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.freeimageconverter.net/transparent-jpg.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.freeimageconverter.net/best-format-2025.html</loc><lastmod>2025-08-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+</urlset>
