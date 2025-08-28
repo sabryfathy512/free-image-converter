@@ -8,8 +8,10 @@
   <title>Free Image Converter | JPG to PNG, WebP, ICO Online (No Sign-Up)</title>
   <meta name="description" content="Free, no sign-up, no uploads. Fast JPG ↔ PNG ↔ WebP ↔ ICO converter with batch support, resize, and ZIP download. 100% client-side." />
   <link rel="canonical" href="https://www.freeimageconverter.net/" />
+  <!-- hreflang (EN/AR + x-default) -->
+  <link rel="alternate" href="https://www.freeimageconverter.net/" hreflang="en" />
+  <link rel="alternate" href="https://www.freeimageconverter.net/ar/" hreflang="ar" />
   <link rel="alternate" href="https://www.freeimageconverter.net/" hreflang="x-default" />
-  <!-- Note: No hreflang=ar until a real /ar/ HTML is published -->
   <meta name="theme-color" content="#0b0c10">
 
   <!-- PWA/icons (relative paths for sub-path safety) -->
@@ -452,102 +454,13 @@
   </div></dialog>
 
   <script>
-    // ===== i18n (EN/AR) =====
-    const i18n = {
-      en: {
-        title: "Free Image Converter",
-        badge: "Free forever · No login",
-        lead: "Free forever. No sign-up. No uploads. Convert between JPG, PNG, WebP, and ICO with drag-and-drop, batch processing, optional resize, and ZIP download. Ad-supported.",
-        lblFormat: "Output format",
-        fmtHint: "JPG/WebP allow quality setting. ICO is a 256×256 PNG inside an ICO header.",
-        lblQuality: "Quality (JPG/WebP)",
-        lblBG: "Background for JPG (transparent areas)",
-        bgHint: "Used only when output is JPG.",
-        lblResize: "Resize before convert (optional)",
-        resizeHint: "Reduce size for faster processing on low-memory devices.",
-        lblPercent: "Scale percentage",
-        lblMaxW: "Max width (px)",
-        choose: "Choose Files",
-        clear: "Clear List",
-        privacyNote: "Free · No login · All processing in your browser.",
-        dropTitle: "Drag & drop images",
-        dropHint: "JPG, PNG, WebP, ICO. Batch supported. *Large images work; device memory is the only limit.",
-        convert: "Convert",
-        zip: "Download All (ZIP)",
-        notes: "Notes",
-        preview: "Preview", file: "File", original: "Original", output: "Output",
-        status: "Status", download: "Download", done: "Ready", processing: "Processing…",
-        failed: "Failed", toast: "✅ Conversion complete",
-        altThumb: "Thumbnail preview"
-      },
-      ar: {
-        title: "محوّل صيغ الصور مجانًا",
-        badge: "مجاني دائمًا · بدون تسجيل",
-        lead: "مجاني للأبد. بدون تسجيل أو رفع. تحويل بين ‎JPG‎ و‎PNG‎ و‎WebP‎ و‎ICO مع السحب والإفلات، معالجة دُفعية، تغيير الحجم اختياري، وتنزيل ZIP. مدعوم بالإعلانات.",
-        lblFormat: "صيغة الإخراج",
-        fmtHint: "يمكن ضبط الجودة لملفي JPG وWebP. يتم إنشاء ICO من ‎PNG بحجم ‎256×256 داخل ملف ICO.",
-        lblQuality: "الجودة (JPG/WebP)",
-        lblBG: "لون الخلفية لملف JPG (للمناطق الشفافة)",
-        bgHint: "يُستخدم فقط عند اختيار JPG.",
-        lblResize: "تغيير الحجم قبل التحويل (اختياري)",
-        resizeHint: "تقليل الحجم لتسريع المعالجة على الأجهزة محدودة الذاكرة.",
-        lblPercent: "نسبة التصغير/التكبير",
-        lblMaxW: "أقصى عرض (بكسل)",
-        choose: "اختر الملفات",
-        clear: "مسح القائمة",
-        privacyNote: "مجاني · بدون تسجيل · كل المعالجة داخل متصفحك.",
-        dropTitle: "اسحب وأفلت الصور هنا",
-        dropHint: "JPG, PNG, WebP, ICO — يدعم الدُفعات. *تعمل مع الصور الكبيرة؛ الحد فقط هو ذاكرة جهازك.",
-        convert: "تحويل",
-        zip: "تنزيل الكل (ZIP)",
-        notes: "ملاحظات",
-        preview: "معاينة", file: "الملف", original: "الأصلي", output: "الإخراج",
-        status: "الحالة", download: "تنزيل", done: "جاهز", processing: "جارٍ المعالجة…",
-        failed: "فشل", toast: "✅ تم إكمال التحويل",
-        altThumb: "صورة مُصغّرة"
-      }
-    };
-    let lang = 'en';
-
+    // === Utilities & state (EN only — no in-page i18n) ===
     const $ = s => document.querySelector(s);
     const fileBody = $('#fileBody');
     const progressBar = $('#progressBar');
     const progressText = $('#progressText');
     const state = { files: [], zip: null, convertedCount: 0 };
     let idCounter = 0;
-
-    function applyLang(l){
-      lang=l; const t=i18n[l];
-      document.documentElement.lang=l;
-      document.documentElement.dir=(l==='ar')?'rtl':'ltr';
-      $('#appTitle').textContent=t.title; $('#freeBadge').textContent=t.badge;
-
-      // Sync meta (note: crawlers read initial HTML; this is UX)
-      document.title = (l==='en')
-        ? "Free Image Converter | JPG to PNG, WebP, ICO Online (No Sign-Up)"
-        : "محوّل صيغ الصور مجانًا | JPG إلى PNG و WebP و ICO (بدون تسجيل)";
-      document.querySelector('meta[name="description"]')?.setAttribute('content', t.lead);
-      document.querySelector('meta[property="og:description"]')?.setAttribute('content', t.lead);
-      document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', t.lead);
-
-      $('#lead').textContent=t.lead;
-      $('#lblFormat').textContent=t.lblFormat; $('#fmtHint').textContent=t.fmtHint;
-      $('#lblQuality').textContent=t.lblQuality; $('#lblBG').textContent=t.lblBG; $('#bgHint').textContent=t.bgHint;
-      $('#lblResize').textContent=t.lblResize; $('#resizeHint').textContent=t.resizeHint;
-      $('#lblPercent').textContent=t.lblPercent; $('#lblMaxW').textContent=t.lblMaxW;
-      $('#pickBtn').textContent=t.choose; $('#clearBtn').textContent=t.clear; $('#privacyNote').textContent=t.privacyNote;
-      $('#dropTitle').textContent=t.dropTitle; $('#dropHint').textContent=t.dropHint;
-      $('#convertBtn').textContent=t.convert; $('#zipBtn').textContent=t.zip;
-      $('#faqTitle').textContent=t.notes;
-      document.querySelector('#fileTable thead').innerHTML=`
-        <tr>
-          <th scope="col">${t.preview}</th><th scope="col">${t.file}</th>
-          <th class="nowrap" scope="col">${t.original}</th><th class="nowrap" scope="col">${t.output}</th>
-          <th scope="col">${t.status}</th><th scope="col">${t.download}</th>
-        </tr>`;
-      $('#toast').textContent=t.toast;
-      $('#btnEN').setAttribute('aria-pressed', l==='en'); $('#btnAR').setAttribute('aria-pressed', l==='ar');
-    }
 
     function setTheme(mode){
       document.documentElement.removeAttribute('data-theme');
@@ -561,7 +474,7 @@
     function makeRow(item){
       const tr=document.createElement('tr');
       tr.id=`row-${item.id}`;
-      const alt = (i18n[lang]?.altThumb || "Thumbnail") + ": " + (item.file?.name || "image");
+      const alt = "Thumbnail preview: " + (item.file?.name || "image");
       tr.innerHTML=`
         <td><img class="thumb" src="${item.thumbUrl}" alt="${alt}" loading="lazy" decoding="async"></td>
         <td class="nowrap">${item.file.name}</td>
@@ -582,7 +495,7 @@
       td.innerHTML='';
       const b=document.createElement('button');
       b.className='btn secondary';
-      b.textContent=i18n[lang].download || 'Download';
+      b.textContent='Download';
       b.setAttribute('aria-label', 'Download ' + name);
       b.addEventListener('click',()=>saveAs(blob,name));
       td.appendChild(b)
@@ -748,12 +661,11 @@
       state.zip = new JSZip();
       state.convertedCount = 0;
 
-      const t       = i18n[lang];
       const fmt     = $('#fmtSelect').value;
       const quality = parseFloat($('#quality').value);
       const bg      = $('#bgColor').value;
 
-      for (const item of state.files) updateRowStatus(item.id, t.processing || 'Processing…');
+      for (const item of state.files) updateRowStatus(item.id, 'Processing…');
 
       let done = 0, total = state.files.length;
       updateProgress(0, total);
@@ -772,13 +684,13 @@
 
           setOutInfo(item.id, `${outW}×${outH} (${humanSize(blob.size)})`);
           setDownloadBtn(item.id, outName, blob);
-          updateRowStatus(item.id, t.done || 'Ready');
+          updateRowStatus(item.id, 'Ready');
 
           state.zip.file(outName, blob);
           state.convertedCount++;
         } catch (e) {
           console.error(e);
-          updateRowStatus(item.id, t.failed || 'Failed');
+          updateRowStatus(item.id, 'Failed');
         }
 
         done++;
@@ -878,16 +790,23 @@
     }
     $('#resizeMode').addEventListener('change', toggleResizeUI); toggleResizeUI();
 
-    // Language & Theme
-    $('#btnEN').addEventListener('click',()=>applyLang('en'));
-    $('#btnAR').addEventListener('click',()=>applyLang('ar'));
-    applyLang('en');
-
+    // Theme
     const savedTheme = (()=>{ try{ return localStorage.getItem('theme') || 'auto'; }catch{ return 'auto'; } })();
     setTheme(savedTheme);
     $('#themeLight').addEventListener('click',()=>setTheme('light'));
     $('#themeDark').addEventListener('click',()=>setTheme('dark'));
     $('#themeAuto').addEventListener('click',()=>setTheme('auto'));
+
+    // Language buttons -> navigate between EN/AR pages
+    (function setupLangButtons(){
+      const isAR = location.pathname.startsWith('/ar/');
+      const btnEN = document.getElementById('btnEN');
+      const btnAR = document.getElementById('btnAR');
+      btnEN?.setAttribute('aria-pressed', String(!isAR));
+      btnAR?.setAttribute('aria-pressed', String(isAR));
+      btnEN?.addEventListener('click', ()=>{ if (location.pathname.startsWith('/ar/')) location.href = '/'; });
+      btnAR?.addEventListener('click', ()=>{ if (!location.pathname.startsWith('/ar/')) location.href = '/ar/'; });
+    })();
 
     // Footer year
     $('#year').textContent=new Date().getFullYear();
