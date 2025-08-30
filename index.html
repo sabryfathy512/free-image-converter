@@ -160,7 +160,13 @@
     [data-theme="dark"] .drop{background:color-mix(in oklab,var(--card) 92%, transparent)}
     [data-theme="dark"] .btn.secondary{background:color-mix(in oklab,var(--bg-soft) 80%, transparent)}
     .icon{width:18px;height:18px;display:inline-block;vertical-align:middle}
-  </style>
+  
+    /* Button icon layout (unified) */
+    .btn{ display:inline-flex; align-items:center; gap:8px; }
+    .btn .icon-emoji{ font-size:18px; line-height:1; }
+    html[dir="rtl"] .btn{ flex-direction: row; }
+    
+</style>
 
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZT3BHHBZQ3"></script>
@@ -285,8 +291,8 @@
 
           <div class="buttons">
             <input type="file" id="picker" accept="image/*,.ico" multiple hidden />
-            <button class="btn" id="pickBtn" type="button" aria-label="Choose files">📂 Choose Files</button>
-            <button class="btn secondary" id="clearBtn" type="button" aria-label="Clear file list">🧹 Clear List</button>
+            <button class="btn" id="pickBtn" type="button" aria-label="اختر الملفات / Choose files"><span class="icon-emoji" aria-hidden="true">📂</span><span class="btn-label">Choose Files</span></button>
+<button class="btn secondary" id="clearBtn" type="button" aria-label="مسح القائمة / Clear list"><span class="icon-emoji" aria-hidden="true">🧹</span><span class="btn-label">Clear List</span></button>
             <span class="hint" id="privacyNote">Free · No login · All processing in your browser.</span>
           </div>
 
@@ -319,8 +325,8 @@
           </section>
 
           <div class="buttons" style="margin-top:12px">
-            <button class="btn" id="convertBtn" type="button" aria-label="Start conversion">⚡ Convert</button>
-            <button class="btn secondary" id="zipBtn" type="button" disabled aria-label="Download all files as ZIP" aria-disabled="true">🗜️ Download All (ZIP)</button>
+            <button class="btn" id="convertBtn" type="button" aria-label="Start conversion / بدء التحويل"><span class="icon-emoji" aria-hidden="true">⚡</span><span class="btn-label">Convert</span></button>
+<button class="btn secondary" id="zipBtn" type="button" aria-label="Download all as ZIP / تنزيل الكل كـ ZIP" aria-disabled="true" disabled><span class="icon-emoji" aria-hidden="true">🗜️</span><span class="btn-label">Download All (ZIP)</span></button>
           </div>
 
           <!-- In-content Ad Slot (CLS-safe) -->
@@ -509,9 +515,9 @@
       $('#lblQuality').textContent=t.lblQuality; $('#lblBG').textContent=t.lblBG; $('#bgHint').textContent=t.bgHint;
       $('#lblResize').textContent=t.lblResize; $('#resizeHint').textContent=t.resizeHint;
       $('#lblPercent').textContent=t.lblPercent; $('#lblMaxW').textContent=t.lblMaxW;
-      $('#pickBtn').textContent=t.choose; $('#clearBtn').textContent=t.clear; $('#privacyNote').textContent=t.privacyNote;
+      document.querySelector('#pickBtn .btn-label').textContent = t.choose; document.querySelector('#clearBtn .btn-label').textContent = t.clear; $('#privacyNote').textContent=t.privacyNote;
       $('#dropTitle').textContent=t.dropTitle; $('#dropHint').textContent=t.dropHint;
-      $('#convertBtn').textContent=t.convert; $('#zipBtn').textContent=t.zip;
+      document.querySelector('#convertBtn .btn-label').textContent = t.convert; document.querySelector('#zipBtn .btn-label').textContent = t.zip;
       $('#faqTitle').textContent=t.notes;
       document.querySelector('#fileTable thead').innerHTML=`
         <tr>
