@@ -161,7 +161,13 @@
     [data-theme="dark"] .drop{background:color-mix(in oklab,var(--card) 92%, transparent)}
     [data-theme="dark"] .btn.secondary{background:color-mix(in oklab,var(--bg-soft) 80%, transparent)}
     .icon{width:18px;height:18px;display:inline-block;vertical-align:middle}
-  </style>
+  
+    /* Button icon layout (unified) */
+    .btn{ display:inline-flex; align-items:center; gap:8px; }
+    .btn .icon-emoji{ font-size:18px; line-height:1; }
+    html[dir="rtl"] .btn{ flex-direction: row; }
+    
+</style>
 
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZT3BHHBZQ3"></script>
@@ -287,8 +293,8 @@
 
           <div class="buttons">
             <input type="file" id="picker" accept="image/*,.ico" multiple hidden />
-            <button class="btn" id="pickBtn" type="button" aria-label="اختر ملفات">📂 اختر الملفات</button>
-            <button class="btn secondary" id="clearBtn" type="button" aria-label="مسح القائمة">🧹 مسح القائمة</button>
+            <button class="btn" id="pickBtn" type="button" aria-label="اختر الملفات / Choose files"><span class="icon-emoji" aria-hidden="true">📂</span><span class="btn-label">اختر الملفات</span></button>
+<button class="btn secondary" id="clearBtn" type="button" aria-label="مسح القائمة / Clear list"><span class="icon-emoji" aria-hidden="true">🧹</span><span class="btn-label">مسح القائمة</span></button>
             <span class="hint" id="privacyNote">مجاني · بدون تسجيل · كل المعالجة داخل متصفحك.</span>
           </div>
 
@@ -321,8 +327,8 @@
           </section>
 
           <div class="buttons" style="margin-top:12px">
-            <button class="btn" id="convertBtn" type="button" aria-label="بدء التحويل">⚡ تحويل</button>
-            <button class="btn secondary" id="zipBtn" type="button" disabled aria-label="تنزيل كل الملفات كـ ZIP" aria-disabled="true">🗜️ تنزيل الكل (ZIP)</button>
+            <button class="btn" id="convertBtn" type="button" aria-label="Start conversion / بدء التحويل"><span class="icon-emoji" aria-hidden="true">⚡</span><span class="btn-label">تحويل</span></button>
+<button class="btn secondary" id="zipBtn" type="button" aria-label="Download all as ZIP / تنزيل الكل كـ ZIP" aria-disabled="true" disabled><span class="icon-emoji" aria-hidden="true">🗜️</span><span class="btn-label">تنزيل الكل (ZIP)</span></button>
           </div>
 
           <!-- إعلان داخل المحتوى -->
